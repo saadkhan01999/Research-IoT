@@ -1,0 +1,7 @@
+item,kind,size_bytes,crc32,sha256,recorded_at
+data/raw/CICIoT2023_merged.zip,file,1457204262,,d8e99b7c44baf3e5e311ffd0b426a0273597a17d9627f9a866fa5c56f3969304,2026-11-11 10:05:23
+data/raw/merge_report.txt,file,27944,,2c523ec38cd9ee2ad320b9f327da19a32c3295c4241e583de0bfc3a6bc1143c0,2026-11-11 10:05:23
+CICIoT2023_merged.zip::CICIoT2023_merged.csv,zip_member,9946779990,e88761ec,6db35a440e6557a3829a72338d92a186f762084aa8ccb02cd8eaddeb98975eda,2026-11-11 10:05:23
+CICIoT2023_merged.zip::merge_report.txt,zip_member,27944,176eae57,2c523ec38cd9ee2ad320b9f327da19a32c3295c4241e583de0bfc3a6bc1143c0,2026-11-11 10:05:23
+CICIoT2023_merged.zip::class_distribution.csv,zip_member,1695,aef5603f,b91dc9b33432f952b1b21e2a33dce1323a6a81f2202276dfc0e017076266d4e2,2026-11-11 10:05:23
+CICIoT2023_merged.zip::README_CSV.pdf,zip_member,69751,3dae98bc,76d79460e416b88a28e9db3573255ea5fb5fca836fc2e3d3f794a4df2b9e7e98,2026-11-11 10:05:23

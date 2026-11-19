@@ -1,0 +1,450 @@
+CICIoT2023 - merged CSV report
+========================================================================
+Generated : 2026-11-10 14:29
+Source    : CSV.zip (309 CSV files in 34 class folders)
+Output    : CICIoT2023_merged.zip -> CICIoT2023_merged.csv
+Rows      : 46776697 data rows (+1 header row)
+Columns   : 41 = 39 original features + Label + Category
+Size      : 9.95 GB uncompressed
+Time      : 11.4 min
+
+How the merge was done
+------------------------------------------------------------------------
+* The original per-pcap CSVs have NO label column; the class is only the folder name.
+  Each row therefore gets:
+    Label    = folder name (34 classes; folder "Benign_Final" -> "BenignTraffic")
+    Category = attack family used in the CICIoT2023 paper (8 groups):
+               Benign, DDoS, DoS, Mirai, Recon, Spoofing, Web, BruteForce
+  Binary task: Category == "Benign" vs. everything else.
+* All 309 files had the identical 39-column header; it is written once at the top.
+* Rows keep their original values and order, grouped by class (folders A-Z, files
+  in numeric order). The file is NOT shuffled - shuffle before train/test splitting.
+* Nothing was removed except the data-quality drops listed below (if any).
+
+Class distribution (34 classes)
+------------------------------------------------------------------------
+Label                      Category   Files         Rows        %
+DDoS-ICMP_Flood            DDoS          27      7200501  15.393%
+DDoS-UDP_Flood             DDoS          21      5412231  11.570%
+DDoS-TCP_Flood             DDoS          18      4497649   9.615%
+DDoS-PSHACK_FLOOD          DDoS          16      4094772   8.754%
+DDoS-SYN_Flood             DDoS          16      4059179   8.678%
+DDoS-RSTFINFLOOD           DDoS          16      4045279   8.648%
+DDoS-SynonymousIP_Flood    DDoS          14      3598133   7.692%
+DoS-UDP_Flood              DoS           17      3072990   6.569%
+DoS-TCP_Flood              DoS           11      2671430   5.711%
+DoS-SYN_Flood              DoS            8      2028836   4.337%
+BenignTraffic              Benign         4      1098191   2.348%
+Mirai-greeth_flood         Mirai         29       991834   2.120%
+Mirai-udpplain             Mirai         25       890574   1.904%
+Mirai-greip_flood          Mirai         22       751646   1.607%
+DDoS-ICMP_Fragmentation    DDoS          20       452490   0.967%
+VulnerabilityScan          Recon          1       373351   0.798%
+MITM-ArpSpoofing           Spoofing       2       307560   0.658%
+DDoS-UDP_Fragmentation     DDoS          13       286925   0.613%
+DDoS-ACK_Fragmentation     DDoS          13       285075   0.609%
+DNS_Spoofing               Spoofing       1       178898   0.382%
+Recon-HostDiscovery        Recon          1       134378   0.287%
+Recon-OSScan               Recon          1        98259   0.210%
+Recon-PortScan             Recon          1        82284   0.176%
+DoS-HTTP_Flood             DoS            2        71861   0.154%
+DDoS-HTTP_Flood            DDoS           1        28790   0.062%
+DDoS-SlowLoris             DDoS           1        23426   0.050%
+DictionaryBruteForce       BruteForce     1        13064   0.028%
+BrowserHijacking           Web            1         5859   0.013%
+CommandInjection           Web            1         5409   0.012%
+SqlInjection               Web            1         5245   0.011%
+XSS                        Web            1         3846   0.008%
+Backdoor_Malware           Web            1         3218   0.007%
+Recon-PingSweep            Recon          1         2262   0.005%
+Uploading_Attack           Web            1         1252   0.003%
+TOTAL                                   309     46776697 100.000%
+Imbalance: largest class DDoS-ICMP_Flood (7200501) is 5751x the smallest Uploading_Attack (1252).
+
+Category distribution (8 groups)
+------------------------------------------------------------------------
+DDoS             33984450  72.653%
+DoS               7845117  16.771%
+Mirai             2634054   5.631%
+Benign            1098191   2.348%
+Recon              690534   1.476%
+Spoofing           486458   1.040%
+Web                 24829   0.053%
+BruteForce          13064   0.028%
+
+Data quality
+------------------------------------------------------------------------
+empty lines dropped                          0
+repeated header rows dropped                 0
+malformed rows dropped                       3
+rows with empty or nonnumeric values kept    1037
+files missing final newline                  3
+  malformed example (CSV/DoS-UDP_Flood/DoS-UDP_Flood7.pcap.csv): b'8.0,17,64.0,15253.123863553714,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1.0,16200,162,1'
+  malformed example (CSV/DoS-UDP_Flood/DoS-UDP_Flood8.pcap.csv): b'8.16,17,71.0,14609.209334726576,0.0,0.01,0.0,0.01,0.01,0.0,0.0,1,1,0,0,0.01,0.01,0.0,0.0,0.0,0.0,0.0,0.02,0.93,0.0,0.01,0.04,0.0,0.99,0.99,6093,60,99,60.93,4.52'
+  malformed example (CSV/DoS-UDP_Flood/DoS-UDP_Flood9.pcap.csv): b'8.0,17,64.0,9808.369'
+Empty values by column: Std=702, Variance=702
+Non-numeric values in Rate: 'inf' x1037
+
+Exact duplicate rows (all 39 feature values identical)
+------------------------------------------------------------------------
+Unique feature vectors                        21056271
+Duplicate rows, ignoring label                25720426 (54.99%)
+Duplicate rows within the same class          25082062 (53.62%)
+Feature vectors that appear in >1 class       542932
+Rows carrying such a cross-class vector       14321020
+(Duplicates were kept. Per-class counts are in class_distribution.csv.)
+
+Feature summary (1% systematic sample = 468099 rows)
+------------------------------------------------------------------------
+Feature                         min              max             mean  NaN/inf
+Header_Length                     0               60          13.7664        0
+Protocol Type                     0               47          9.05071        0
+Time_To_Live                      0              255          66.5385        0
+Rate                      0.0237929      3.35544e+06          28397.9        8
+fin_flag_number                   0                1        0.0873865        0
+syn_flag_number                   0                1         0.207518        0
+rst_flag_number                   0                1        0.0933622        0
+psh_flag_number                   0                1        0.0943082        0
+ack_flag_number                   0                1         0.130359        0
+ece_flag_number                   0              0.4      2.57638e-05        0
+cwr_flag_number                   0              0.2      1.36723e-05        0
+ack_count                         0              100          9.89495        0
+syn_count                         0              100          20.5071        0
+fin_count                         0              100          8.65592        0
+rst_count                         0              100          9.21408        0
+HTTP                              0                1        0.0504582        0
+HTTPS                             0                1         0.059145        0
+DNS                               0             0.93       0.00262274        0
+Telnet                            0              0.3      1.05106e-05        0
+SMTP                              0              0.1      9.95516e-06        0
+SSH                               0                1      0.000201923        0
+IRC                               0              0.7      1.75604e-05        0
+TCP                               0                1         0.577625        0
+UDP                               0                1         0.213371        0
+DHCP                              0              0.4      0.000170473        0
+ARP                               0                1       0.00283485        0
+ICMP                              0                1         0.164231        0
+IGMP                              0              0.2      2.21321e-05        0
+IPv                               0                1         0.997165        0
+LLC                               0                1         0.997165        0
+Tot sum                          60           249974            10973        0
+Min                              42             2922          79.9423        0
+Max                              54            33370          223.076        0
+AVG                            47.4           5713.2          131.542        0
+Std                               0            10407          41.2706        0
+Tot size                       47.4           5713.2          131.542        0
+IAT                               0           42.068      0.000790913        0
+Number                            1              100          95.4875        0
+Variance                          0      1.08306e+08          34023.6        0
+
+Rows per source file
+------------------------------------------------------------------------
+      3218  CSV/Backdoor_Malware/Backdoor_Malware.pcap.csv
+    362361  CSV/Benign_Final/BenignTraffic.pcap.csv
+    295585  CSV/Benign_Final/BenignTraffic1.pcap.csv
+    310413  CSV/Benign_Final/BenignTraffic2.pcap.csv
+    129832  CSV/Benign_Final/BenignTraffic3.pcap.csv
+      5859  CSV/BrowserHijacking/BrowserHijacking.pcap.csv
+      5409  CSV/CommandInjection/CommandInjection.pcap.csv
+     25090  CSV/DDoS-ACK_Fragmentation/DDoS-ACK_Fragmentation.pcap.csv
+     22416  CSV/DDoS-ACK_Fragmentation/DDoS-ACK_Fragmentation1.pcap.csv
+     22550  CSV/DDoS-ACK_Fragmentation/DDoS-ACK_Fragmentation2.pcap.csv
+     22820  CSV/DDoS-ACK_Fragmentation/DDoS-ACK_Fragmentation3.pcap.csv
+     22483  CSV/DDoS-ACK_Fragmentation/DDoS-ACK_Fragmentation4.pcap.csv
+     21977  CSV/DDoS-ACK_Fragmentation/DDoS-ACK_Fragmentation5.pcap.csv
+     22144  CSV/DDoS-ACK_Fragmentation/DDoS-ACK_Fragmentation6.pcap.csv
+     22253  CSV/DDoS-ACK_Fragmentation/DDoS-ACK_Fragmentation7.pcap.csv
+     22469  CSV/DDoS-ACK_Fragmentation/DDoS-ACK_Fragmentation8.pcap.csv
+     25880  CSV/DDoS-ACK_Fragmentation/DDoS-ACK_Fragmentation9.pcap.csv
+     22750  CSV/DDoS-ACK_Fragmentation/DDoS-ACK_Fragmentation10.pcap.csv
+     22761  CSV/DDoS-ACK_Fragmentation/DDoS-ACK_Fragmentation11.pcap.csv
+      9482  CSV/DDoS-ACK_Fragmentation/DDoS-ACK_Fragmentation12.pcap.csv
+     28790  CSV/DDoS-HTTP_Flood/DDoS-HTTP_Flood-.pcap.csv
+    268010  CSV/DDoS-ICMP_Flood/DDoS-ICMP_Flood.pcap.csv
+    268903  CSV/DDoS-ICMP_Flood/DDoS-ICMP_Flood1.pcap.csv
+    264070  CSV/DDoS-ICMP_Flood/DDoS-ICMP_Flood2.pcap.csv
+    261484  CSV/DDoS-ICMP_Flood/DDoS-ICMP_Flood3.pcap.csv
+    267814  CSV/DDoS-ICMP_Flood/DDoS-ICMP_Flood4.pcap.csv
+    268142  CSV/DDoS-ICMP_Flood/DDoS-ICMP_Flood5.pcap.csv
+    268788  CSV/DDoS-ICMP_Flood/DDoS-ICMP_Flood6.pcap.csv
+    268462  CSV/DDoS-ICMP_Flood/DDoS-ICMP_Flood7.pcap.csv
+    267907  CSV/DDoS-ICMP_Flood/DDoS-ICMP_Flood8.pcap.csv
+    268154  CSV/DDoS-ICMP_Flood/DDoS-ICMP_Flood9.pcap.csv
+    268527  CSV/DDoS-ICMP_Flood/DDoS-ICMP_Flood10.pcap.csv
+    268373  CSV/DDoS-ICMP_Flood/DDoS-ICMP_Flood11.pcap.csv
+    268218  CSV/DDoS-ICMP_Flood/DDoS-ICMP_Flood12.pcap.csv
+    266839  CSV/DDoS-ICMP_Flood/DDoS-ICMP_Flood13.pcap.csv
+    266548  CSV/DDoS-ICMP_Flood/DDoS-ICMP_Flood14.pcap.csv
+    263840  CSV/DDoS-ICMP_Flood/DDoS-ICMP_Flood15.pcap.csv
+    249338  CSV/DDoS-ICMP_Flood/DDoS-ICMP_Flood16.pcap.csv
+    267895  CSV/DDoS-ICMP_Flood/DDoS-ICMP_Flood17.pcap.csv
+    269201  CSV/DDoS-ICMP_Flood/DDoS-ICMP_Flood18.pcap.csv
+    268311  CSV/DDoS-ICMP_Flood/DDoS-ICMP_Flood19.pcap.csv
+    265195  CSV/DDoS-ICMP_Flood/DDoS-ICMP_Flood20.pcap.csv
+    268530  CSV/DDoS-ICMP_Flood/DDoS-ICMP_Flood21.pcap.csv
+    266941  CSV/DDoS-ICMP_Flood/DDoS-ICMP_Flood22.pcap.csv
+    268450  CSV/DDoS-ICMP_Flood/DDoS-ICMP_Flood23.pcap.csv
+    267505  CSV/DDoS-ICMP_Flood/DDoS-ICMP_Flood24.pcap.csv
+    266632  CSV/DDoS-ICMP_Flood/DDoS-ICMP_Flood25.pcap.csv
+    268424  CSV/DDoS-ICMP_Flood/DDoS-ICMP_Flood26.pcap.csv
+     20696  CSV/DDoS-ICMP_Fragmentation/DDoS-ICMP_Fragmentation.pcap.csv
+     22527  CSV/DDoS-ICMP_Fragmentation/DDoS-ICMP_Fragmentation1.pcap.csv
+     22617  CSV/DDoS-ICMP_Fragmentation/DDoS-ICMP_Fragmentation2.pcap.csv
+     23381  CSV/DDoS-ICMP_Fragmentation/DDoS-ICMP_Fragmentation3.pcap.csv
+     23567  CSV/DDoS-ICMP_Fragmentation/DDoS-ICMP_Fragmentation4.pcap.csv
+     22421  CSV/DDoS-ICMP_Fragmentation/DDoS-ICMP_Fragmentation5.pcap.csv
+     22335  CSV/DDoS-ICMP_Fragmentation/DDoS-ICMP_Fragmentation6.pcap.csv
+     22783  CSV/DDoS-ICMP_Fragmentation/DDoS-ICMP_Fragmentation7.pcap.csv
+     22537  CSV/DDoS-ICMP_Fragmentation/DDoS-ICMP_Fragmentation8.pcap.csv
+     23289  CSV/DDoS-ICMP_Fragmentation/DDoS-ICMP_Fragmentation9.pcap.csv
+     22742  CSV/DDoS-ICMP_Fragmentation/DDoS-ICMP_Fragmentation10.pcap.csv
+     22529  CSV/DDoS-ICMP_Fragmentation/DDoS-ICMP_Fragmentation11.pcap.csv
+     22931  CSV/DDoS-ICMP_Fragmentation/DDoS-ICMP_Fragmentation12.pcap.csv
+     22574  CSV/DDoS-ICMP_Fragmentation/DDoS-ICMP_Fragmentation13.pcap.csv
+     22717  CSV/DDoS-ICMP_Fragmentation/DDoS-ICMP_Fragmentation14.pcap.csv
+     22276  CSV/DDoS-ICMP_Fragmentation/DDoS-ICMP_Fragmentation15.pcap.csv
+     23046  CSV/DDoS-ICMP_Fragmentation/DDoS-ICMP_Fragmentation16.pcap.csv
+     25135  CSV/DDoS-ICMP_Fragmentation/DDoS-ICMP_Fragmentation17.pcap.csv
+     22521  CSV/DDoS-ICMP_Fragmentation/DDoS-ICMP_Fragmentation18.pcap.csv
+     19866  CSV/DDoS-ICMP_Fragmentation/DDoS-ICMP_Fragmentation19.pcap.csv
+    267811  CSV/DDoS-PSHACK_FLOOD/DDoS-PSHACK_Flood.pcap.csv
+    269067  CSV/DDoS-PSHACK_FLOOD/DDoS-PSHACK_Flood1.pcap.csv
+    268128  CSV/DDoS-PSHACK_FLOOD/DDoS-PSHACK_Flood2.pcap.csv
+    268033  CSV/DDoS-PSHACK_FLOOD/DDoS-PSHACK_Flood3.pcap.csv
+    268329  CSV/DDoS-PSHACK_FLOOD/DDoS-PSHACK_Flood4.pcap.csv
+    268533  CSV/DDoS-PSHACK_FLOOD/DDoS-PSHACK_Flood5.pcap.csv
+    268242  CSV/DDoS-PSHACK_FLOOD/DDoS-PSHACK_Flood6.pcap.csv
+    267701  CSV/DDoS-PSHACK_FLOOD/DDoS-PSHACK_Flood7.pcap.csv
+    268783  CSV/DDoS-PSHACK_FLOOD/DDoS-PSHACK_Flood8.pcap.csv
+    265956  CSV/DDoS-PSHACK_FLOOD/DDoS-PSHACK_Flood9.pcap.csv
+    265553  CSV/DDoS-PSHACK_FLOOD/DDoS-PSHACK_Flood10.pcap.csv
+    267192  CSV/DDoS-PSHACK_FLOOD/DDoS-PSHACK_Flood11.pcap.csv
+    266453  CSV/DDoS-PSHACK_FLOOD/DDoS-PSHACK_Flood12.pcap.csv
+    268539  CSV/DDoS-PSHACK_FLOOD/DDoS-PSHACK_Flood13.pcap.csv
+    267545  CSV/DDoS-PSHACK_FLOOD/DDoS-PSHACK_Flood14.pcap.csv
+     78907  CSV/DDoS-PSHACK_FLOOD/DDoS-PSHACK_Flood15.pcap.csv
+    266934  CSV/DDoS-RSTFINFLOOD/DDoS-RSTFINFlood.pcap.csv
+    265364  CSV/DDoS-RSTFINFLOOD/DDoS-RSTFINFlood1.pcap.csv
+    265781  CSV/DDoS-RSTFINFLOOD/DDoS-RSTFINFlood2.pcap.csv
+    265518  CSV/DDoS-RSTFINFLOOD/DDoS-RSTFINFlood3.pcap.csv
+    268357  CSV/DDoS-RSTFINFLOOD/DDoS-RSTFINFlood4.pcap.csv
+    268563  CSV/DDoS-RSTFINFLOOD/DDoS-RSTFINFlood5.pcap.csv
+    242421  CSV/DDoS-RSTFINFLOOD/DDoS-RSTFINFlood6.pcap.csv
+    265297  CSV/DDoS-RSTFINFLOOD/DDoS-RSTFINFlood7.pcap.csv
+    268730  CSV/DDoS-RSTFINFLOOD/DDoS-RSTFINFlood8.pcap.csv
+    267317  CSV/DDoS-RSTFINFLOOD/DDoS-RSTFINFlood9.pcap.csv
+    268564  CSV/DDoS-RSTFINFLOOD/DDoS-RSTFINFlood10.pcap.csv
+    265702  CSV/DDoS-RSTFINFLOOD/DDoS-RSTFINFlood11.pcap.csv
+    266782  CSV/DDoS-RSTFINFLOOD/DDoS-RSTFINFlood12.pcap.csv
+    268730  CSV/DDoS-RSTFINFLOOD/DDoS-RSTFINFlood13.pcap.csv
+    268668  CSV/DDoS-RSTFINFLOOD/DDoS-RSTFINFlood14.pcap.csv
+     62551  CSV/DDoS-RSTFINFLOOD/DDoS-RSTFINFlood15.pcap.csv
+     23426  CSV/DDoS-SlowLoris/DDoS-SlowLoris.pcap.csv
+    266024  CSV/DDoS-SYN_Flood/DDoS-SYN_Flood.pcap.csv
+    267197  CSV/DDoS-SYN_Flood/DDoS-SYN_Flood1.pcap.csv
+    268427  CSV/DDoS-SYN_Flood/DDoS-SYN_Flood2.pcap.csv
+    268354  CSV/DDoS-SYN_Flood/DDoS-SYN_Flood3.pcap.csv
+    191158  CSV/DDoS-SYN_Flood/DDoS-SYN_Flood4.pcap.csv
+    267275  CSV/DDoS-SYN_Flood/DDoS-SYN_Flood5.pcap.csv
+    267846  CSV/DDoS-SYN_Flood/DDoS-SYN_Flood6.pcap.csv
+    265072  CSV/DDoS-SYN_Flood/DDoS-SYN_Flood7.pcap.csv
+    260194  CSV/DDoS-SYN_Flood/DDoS-SYN_Flood8.pcap.csv
+    265530  CSV/DDoS-SYN_Flood/DDoS-SYN_Flood9.pcap.csv
+    267692  CSV/DDoS-SYN_Flood/DDoS-SYN_Flood10.pcap.csv
+    266507  CSV/DDoS-SYN_Flood/DDoS-SYN_Flood11.pcap.csv
+    268242  CSV/DDoS-SYN_Flood/DDoS-SYN_Flood12.pcap.csv
+    268015  CSV/DDoS-SYN_Flood/DDoS-SYN_Flood13.pcap.csv
+    264392  CSV/DDoS-SYN_Flood/DDoS-SYN_Flood14.pcap.csv
+    137254  CSV/DDoS-SYN_Flood/DDoS-SYN_Flood15.pcap.csv
+    268626  CSV/DDoS-SynonymousIP_Flood/DDoS-SynonymousIP_Flood.pcap.csv
+    268318  CSV/DDoS-SynonymousIP_Flood/DDoS-SynonymousIP_Flood1.pcap.csv
+    268216  CSV/DDoS-SynonymousIP_Flood/DDoS-SynonymousIP_Flood2.pcap.csv
+    268323  CSV/DDoS-SynonymousIP_Flood/DDoS-SynonymousIP_Flood3.pcap.csv
+    268511  CSV/DDoS-SynonymousIP_Flood/DDoS-SynonymousIP_Flood4.pcap.csv
+    265152  CSV/DDoS-SynonymousIP_Flood/DDoS-SynonymousIP_Flood5.pcap.csv
+    262517  CSV/DDoS-SynonymousIP_Flood/DDoS-SynonymousIP_Flood6.pcap.csv
+    267650  CSV/DDoS-SynonymousIP_Flood/DDoS-SynonymousIP_Flood7.pcap.csv
+    267851  CSV/DDoS-SynonymousIP_Flood/DDoS-SynonymousIP_Flood8.pcap.csv
+    264339  CSV/DDoS-SynonymousIP_Flood/DDoS-SynonymousIP_Flood9.pcap.csv
+    265192  CSV/DDoS-SynonymousIP_Flood/DDoS-SynonymousIP_Flood10.pcap.csv
+    268395  CSV/DDoS-SynonymousIP_Flood/DDoS-SynonymousIP_Flood11.pcap.csv
+    267995  CSV/DDoS-SynonymousIP_Flood/DDoS-SynonymousIP_Flood12.pcap.csv
+    127048  CSV/DDoS-SynonymousIP_Flood/DDoS-SynonymousIP_Flood13.pcap.csv
+    265776  CSV/DDoS-TCP_Flood/DDoS-TCP_Flood.pcap.csv
+    267364  CSV/DDoS-TCP_Flood/DDoS-TCP_Flood1.pcap.csv
+    268248  CSV/DDoS-TCP_Flood/DDoS-TCP_Flood2.pcap.csv
+    267384  CSV/DDoS-TCP_Flood/DDoS-TCP_Flood3.pcap.csv
+    196253  CSV/DDoS-TCP_Flood/DDoS-TCP_Flood4.pcap.csv
+    215399  CSV/DDoS-TCP_Flood/DDoS-TCP_Flood5.pcap.csv
+    262386  CSV/DDoS-TCP_Flood/DDoS-TCP_Flood6.pcap.csv
+    267755  CSV/DDoS-TCP_Flood/DDoS-TCP_Flood7.pcap.csv
+    267999  CSV/DDoS-TCP_Flood/DDoS-TCP_Flood8.pcap.csv
+    264469  CSV/DDoS-TCP_Flood/DDoS-TCP_Flood9.pcap.csv
+    264404  CSV/DDoS-TCP_Flood/DDoS-TCP_Flood10.pcap.csv
+    260145  CSV/DDoS-TCP_Flood/DDoS-TCP_Flood11.pcap.csv
+    267983  CSV/DDoS-TCP_Flood/DDoS-TCP_Flood12.pcap.csv
+    268365  CSV/DDoS-TCP_Flood/DDoS-TCP_Flood13.pcap.csv
+    265920  CSV/DDoS-TCP_Flood/DDoS-TCP_Flood14.pcap.csv
+    267289  CSV/DDoS-TCP_Flood/DDoS-TCP_Flood15.pcap.csv
+    267718  CSV/DDoS-TCP_Flood/DDoS-TCP_Flood16.pcap.csv
+     92792  CSV/DDoS-TCP_Flood/DDoS-TCP_Flood17.pcap.csv
+    266605  CSV/DDoS-UDP_Flood/DDoS-UDP_Flood.pcap.csv
+    266848  CSV/DDoS-UDP_Flood/DDoS-UDP_Flood1.pcap.csv
+    265667  CSV/DDoS-UDP_Flood/DDoS-UDP_Flood2.pcap.csv
+    267399  CSV/DDoS-UDP_Flood/DDoS-UDP_Flood3.pcap.csv
+    266899  CSV/DDoS-UDP_Flood/DDoS-UDP_Flood4.pcap.csv
+    267530  CSV/DDoS-UDP_Flood/DDoS-UDP_Flood5.pcap.csv
+    265495  CSV/DDoS-UDP_Flood/DDoS-UDP_Flood6.pcap.csv
+    268374  CSV/DDoS-UDP_Flood/DDoS-UDP_Flood7.pcap.csv
+    268068  CSV/DDoS-UDP_Flood/DDoS-UDP_Flood8.pcap.csv
+    265944  CSV/DDoS-UDP_Flood/DDoS-UDP_Flood9.pcap.csv
+    261898  CSV/DDoS-UDP_Flood/DDoS-UDP_Flood10.pcap.csv
+    266080  CSV/DDoS-UDP_Flood/DDoS-UDP_Flood11.pcap.csv
+    265580  CSV/DDoS-UDP_Flood/DDoS-UDP_Flood12.pcap.csv
+    267714  CSV/DDoS-UDP_Flood/DDoS-UDP_Flood13.pcap.csv
+    268391  CSV/DDoS-UDP_Flood/DDoS-UDP_Flood14.pcap.csv
+    266491  CSV/DDoS-UDP_Flood/DDoS-UDP_Flood15.pcap.csv
+    267262  CSV/DDoS-UDP_Flood/DDoS-UDP_Flood16.pcap.csv
+    266050  CSV/DDoS-UDP_Flood/DDoS-UDP_Flood17.pcap.csv
+    266620  CSV/DDoS-UDP_Flood/DDoS-UDP_Flood18.pcap.csv
+    267985  CSV/DDoS-UDP_Flood/DDoS-UDP_Flood19.pcap.csv
+     79331  CSV/DDoS-UDP_Flood/DDoS-UDP_Flood20.pcap.csv
+     22542  CSV/DDoS-UDP_Fragmentation/DDoS-UDP_Fragmentation.pcap.csv
+     22541  CSV/DDoS-UDP_Fragmentation/DDoS-UDP_Fragmentation1.pcap.csv
+     22368  CSV/DDoS-UDP_Fragmentation/DDoS-UDP_Fragmentation2.pcap.csv
+     23167  CSV/DDoS-UDP_Fragmentation/DDoS-UDP_Fragmentation3.pcap.csv
+     22715  CSV/DDoS-UDP_Fragmentation/DDoS-UDP_Fragmentation4.pcap.csv
+     23117  CSV/DDoS-UDP_Fragmentation/DDoS-UDP_Fragmentation5.pcap.csv
+     22254  CSV/DDoS-UDP_Fragmentation/DDoS-UDP_Fragmentation6.pcap.csv
+     22669  CSV/DDoS-UDP_Fragmentation/DDoS-UDP_Fragmentation7.pcap.csv
+     22630  CSV/DDoS-UDP_Fragmentation/DDoS-UDP_Fragmentation8.pcap.csv
+     22121  CSV/DDoS-UDP_Fragmentation/DDoS-UDP_Fragmentation9.pcap.csv
+     22361  CSV/DDoS-UDP_Fragmentation/DDoS-UDP_Fragmentation10.pcap.csv
+     22908  CSV/DDoS-UDP_Fragmentation/DDoS-UDP_Fragmentation11.pcap.csv
+     15532  CSV/DDoS-UDP_Fragmentation/DDoS-UDP_Fragmentation12.pcap.csv
+     13064  CSV/DictionaryBruteForce/DictionaryBruteForce.pcap.csv
+    178898  CSV/DNS_Spoofing/DNS_Spoofing.pcap.csv
+     40686  CSV/DoS-HTTP_Flood/DoS-HTTP_Flood.pcap.csv
+     31175  CSV/DoS-HTTP_Flood/DoS-HTTP_Flood1.pcap.csv
+    262691  CSV/DoS-SYN_Flood/DoS-SYN_Flood.pcap.csv
+    264126  CSV/DoS-SYN_Flood/DoS-SYN_Flood1.pcap.csv
+    251970  CSV/DoS-SYN_Flood/DoS-SYN_Flood2.pcap.csv
+    257402  CSV/DoS-SYN_Flood/DoS-SYN_Flood3.pcap.csv
+    258219  CSV/DoS-SYN_Flood/DoS-SYN_Flood4.pcap.csv
+    265519  CSV/DoS-SYN_Flood/DoS-SYN_Flood5.pcap.csv
+    262979  CSV/DoS-SYN_Flood/DoS-SYN_Flood6.pcap.csv
+    205930  CSV/DoS-SYN_Flood/DoS-SYN_Flood7.pcap.csv
+    260129  CSV/DoS-TCP_Flood/DoS-TCP_Flood.pcap.csv
+    246026  CSV/DoS-TCP_Flood/DoS-TCP_Flood1.pcap.csv
+    263675  CSV/DoS-TCP_Flood/DoS-TCP_Flood2.pcap.csv
+    266238  CSV/DoS-TCP_Flood/DoS-TCP_Flood3.pcap.csv
+    265480  CSV/DoS-TCP_Flood/DoS-TCP_Flood4.pcap.csv
+    266316  CSV/DoS-TCP_Flood/DoS-TCP_Flood5.pcap.csv
+    261903  CSV/DoS-TCP_Flood/DoS-TCP_Flood6.pcap.csv
+    265329  CSV/DoS-TCP_Flood/DoS-TCP_Flood7.pcap.csv
+    259664  CSV/DoS-TCP_Flood/DoS-TCP_Flood8.pcap.csv
+    233647  CSV/DoS-TCP_Flood/DoS-TCP_Flood9.pcap.csv
+     83023  CSV/DoS-TCP_Flood/DoS-TCP_Flood10.pcap.csv
+    166838  CSV/DoS-UDP_Flood/DoS-UDP_Flood.pcap.csv
+    141854  CSV/DoS-UDP_Flood/DoS-UDP_Flood1.pcap.csv
+    102879  CSV/DoS-UDP_Flood/DoS-UDP_Flood2.pcap.csv
+    108557  CSV/DoS-UDP_Flood/DoS-UDP_Flood3.pcap.csv
+    131975  CSV/DoS-UDP_Flood/DoS-UDP_Flood4.pcap.csv
+    114208  CSV/DoS-UDP_Flood/DoS-UDP_Flood5.pcap.csv
+    117839  CSV/DoS-UDP_Flood/DoS-UDP_Flood6.pcap.csv
+    175919  CSV/DoS-UDP_Flood/DoS-UDP_Flood7.pcap.csv
+    160834  CSV/DoS-UDP_Flood/DoS-UDP_Flood8.pcap.csv
+    125551  CSV/DoS-UDP_Flood/DoS-UDP_Flood9.pcap.csv
+    262163  CSV/DoS-UDP_Flood/DoS-UDP_Flood10.pcap.csv
+    253306  CSV/DoS-UDP_Flood/DoS-UDP_Flood11.pcap.csv
+    247718  CSV/DoS-UDP_Flood/DoS-UDP_Flood12.pcap.csv
+    261752  CSV/DoS-UDP_Flood/DoS-UDP_Flood13.pcap.csv
+    255526  CSV/DoS-UDP_Flood/DoS-UDP_Flood14.pcap.csv
+    265157  CSV/DoS-UDP_Flood/DoS-UDP_Flood15.pcap.csv
+    180914  CSV/DoS-UDP_Flood/DoS-UDP_Flood16.pcap.csv
+     33597  CSV/Mirai-greeth_flood/Mirai-greeth_flood.pcap.csv
+     34113  CSV/Mirai-greeth_flood/Mirai-greeth_flood1.pcap.csv
+     34054  CSV/Mirai-greeth_flood/Mirai-greeth_flood2.pcap.csv
+     34066  CSV/Mirai-greeth_flood/Mirai-greeth_flood3.pcap.csv
+     34025  CSV/Mirai-greeth_flood/Mirai-greeth_flood4.pcap.csv
+     34016  CSV/Mirai-greeth_flood/Mirai-greeth_flood5.pcap.csv
+     34146  CSV/Mirai-greeth_flood/Mirai-greeth_flood6.pcap.csv
+     34186  CSV/Mirai-greeth_flood/Mirai-greeth_flood7.pcap.csv
+     34067  CSV/Mirai-greeth_flood/Mirai-greeth_flood8.pcap.csv
+     34680  CSV/Mirai-greeth_flood/Mirai-greeth_flood9.pcap.csv
+     34499  CSV/Mirai-greeth_flood/Mirai-greeth_flood10.pcap.csv
+     34551  CSV/Mirai-greeth_flood/Mirai-greeth_flood11.pcap.csv
+     34240  CSV/Mirai-greeth_flood/Mirai-greeth_flood12.pcap.csv
+     34451  CSV/Mirai-greeth_flood/Mirai-greeth_flood13.pcap.csv
+     34058  CSV/Mirai-greeth_flood/Mirai-greeth_flood14.pcap.csv
+     34137  CSV/Mirai-greeth_flood/Mirai-greeth_flood15.pcap.csv
+     34081  CSV/Mirai-greeth_flood/Mirai-greeth_flood16.pcap.csv
+     34054  CSV/Mirai-greeth_flood/Mirai-greeth_flood17.pcap.csv
+     34101  CSV/Mirai-greeth_flood/Mirai-greeth_flood18.pcap.csv
+     34136  CSV/Mirai-greeth_flood/Mirai-greeth_flood19.pcap.csv
+     34235  CSV/Mirai-greeth_flood/Mirai-greeth_flood20.pcap.csv
+     34752  CSV/Mirai-greeth_flood/Mirai-greeth_flood21.pcap.csv
+     34247  CSV/Mirai-greeth_flood/Mirai-greeth_flood22.pcap.csv
+     34493  CSV/Mirai-greeth_flood/Mirai-greeth_flood23.pcap.csv
+     34071  CSV/Mirai-greeth_flood/Mirai-greeth_flood24.pcap.csv
+     34080  CSV/Mirai-greeth_flood/Mirai-greeth_flood25.pcap.csv
+     34518  CSV/Mirai-greeth_flood/Mirai-greeth_flood26.pcap.csv
+     34201  CSV/Mirai-greeth_flood/Mirai-greeth_flood27.pcap.csv
+     33979  CSV/Mirai-greeth_flood/Mirai-greeth_flood28.pcap.csv
+     35073  CSV/Mirai-greip_flood/Mirai-greip_flood.pcap.csv
+     35128  CSV/Mirai-greip_flood/Mirai-greip_flood1.pcap.csv
+     34846  CSV/Mirai-greip_flood/Mirai-greip_flood2.pcap.csv
+     35168  CSV/Mirai-greip_flood/Mirai-greip_flood3.pcap.csv
+     35784  CSV/Mirai-greip_flood/Mirai-greip_flood4.pcap.csv
+     35456  CSV/Mirai-greip_flood/Mirai-greip_flood5.pcap.csv
+     36052  CSV/Mirai-greip_flood/Mirai-greip_flood6.pcap.csv
+     35462  CSV/Mirai-greip_flood/Mirai-greip_flood7.pcap.csv
+     35755  CSV/Mirai-greip_flood/Mirai-greip_flood8.pcap.csv
+     35044  CSV/Mirai-greip_flood/Mirai-greip_flood9.pcap.csv
+     35292  CSV/Mirai-greip_flood/Mirai-greip_flood10.pcap.csv
+     35019  CSV/Mirai-greip_flood/Mirai-greip_flood11.pcap.csv
+     35339  CSV/Mirai-greip_flood/Mirai-greip_flood12.pcap.csv
+     35251  CSV/Mirai-greip_flood/Mirai-greip_flood13.pcap.csv
+     35098  CSV/Mirai-greip_flood/Mirai-greip_flood14.pcap.csv
+     35105  CSV/Mirai-greip_flood/Mirai-greip_flood15.pcap.csv
+     34920  CSV/Mirai-greip_flood/Mirai-greip_flood16.pcap.csv
+     35948  CSV/Mirai-greip_flood/Mirai-greip_flood17.pcap.csv
+     33982  CSV/Mirai-greip_flood/Mirai-greip_flood18.pcap.csv
+     34844  CSV/Mirai-greip_flood/Mirai-greip_flood19.pcap.csv
+     35089  CSV/Mirai-greip_flood/Mirai-greip_flood20.pcap.csv
+     11991  CSV/Mirai-greip_flood/Mirai-greip_flood21.pcap.csv
+     36481  CSV/Mirai-udpplain/Mirai-udpplain.pcap.csv
+     36431  CSV/Mirai-udpplain/Mirai-udpplain1.pcap.csv
+     36214  CSV/Mirai-udpplain/Mirai-udpplain2.pcap.csv
+     36699  CSV/Mirai-udpplain/Mirai-udpplain3.pcap.csv
+     36315  CSV/Mirai-udpplain/Mirai-udpplain4.pcap.csv
+     36503  CSV/Mirai-udpplain/Mirai-udpplain5.pcap.csv
+     36503  CSV/Mirai-udpplain/Mirai-udpplain6.pcap.csv
+     36573  CSV/Mirai-udpplain/Mirai-udpplain7.pcap.csv
+     36679  CSV/Mirai-udpplain/Mirai-udpplain8.pcap.csv
+     36987  CSV/Mirai-udpplain/Mirai-udpplain9.pcap.csv
+     36603  CSV/Mirai-udpplain/Mirai-udpplain10.pcap.csv
+     36272  CSV/Mirai-udpplain/Mirai-udpplain11.pcap.csv
+     36270  CSV/Mirai-udpplain/Mirai-udpplain12.pcap.csv
+     36408  CSV/Mirai-udpplain/Mirai-udpplain13.pcap.csv
+     36346  CSV/Mirai-udpplain/Mirai-udpplain14.pcap.csv
+     36329  CSV/Mirai-udpplain/Mirai-udpplain15.pcap.csv
+     36333  CSV/Mirai-udpplain/Mirai-udpplain16.pcap.csv
+     36443  CSV/Mirai-udpplain/Mirai-udpplain17.pcap.csv
+     36410  CSV/Mirai-udpplain/Mirai-udpplain18.pcap.csv
+     36515  CSV/Mirai-udpplain/Mirai-udpplain19.pcap.csv
+     36305  CSV/Mirai-udpplain/Mirai-udpplain20.pcap.csv
+     36469  CSV/Mirai-udpplain/Mirai-udpplain21.pcap.csv
+     36611  CSV/Mirai-udpplain/Mirai-udpplain22.pcap.csv
+     36785  CSV/Mirai-udpplain/Mirai-udpplain23.pcap.csv
+     15090  CSV/Mirai-udpplain/Mirai-udpplain24.pcap.csv
+    247706  CSV/MITM-ArpSpoofing/MITM-ArpSpoofing.pcap.csv
+     59854  CSV/MITM-ArpSpoofing/MITM-ArpSpoofing1.pcap.csv
+    134378  CSV/Recon-HostDiscovery/Recon-HostDiscovery.pcap.csv
+     98259  CSV/Recon-OSScan/Recon-OSScan.pcap.csv
+      2262  CSV/Recon-PingSweep/Recon-PingSweep.pcap.csv
+     82284  CSV/Recon-PortScan/Recon-PortScan.pcap.csv
+      5245  CSV/SqlInjection/SqlInjection.pcap.csv
+      1252  CSV/Uploading_Attack/Uploading_Attack.pcap.csv
+    373351  CSV/VulnerabilityScan/VulnerabilityScan.pcap.csv
+      3846  CSV/XSS/XSS.pcap.csv
