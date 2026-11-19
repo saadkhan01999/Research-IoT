@@ -1,4 +1,6 @@
-# How much reported accuracy survives? A leakage-audited evaluation of IoT attack classifiers on CICIoT2023
+# Machine Learning-Based Multi-Class Attack Prediction for IoT Devices
+
+A leakage-audited evaluation of IoT attack classifiers on the CICIoT2023 dataset.
 
 MPhil research, Department of Computer Science, Abdul Wali Khan University Mardan.
 Author: Saad bin Saeed Khan. The paper is in preparation.
