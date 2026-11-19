@@ -1,0 +1,41 @@
+# Default settings shared by every script. Paths are relative to the project root.
+# Profile files (quick.yaml, full.yaml) are added in Step 3 and override these values.
+
+project:
+  name: iot-attack-eval
+  seed: 42
+
+paths:
+  raw_zip: data/raw/CICIoT2023_merged.zip      # read-only input, see docs/decisions.md D-002
+  raw_member: CICIoT2023_merged.csv            # the CSV inside raw_zip
+  merge_report: data/raw/merge_report.txt      # row count of every source file, in row order
+  interim: data/interim
+  processed: data/processed
+  checksums: data/checksums
+  results: results
+  figures: figures
+  tables: tables
+  logs: logs
+
+data:
+  n_features: 39
+  n_source_files: 309
+  expected_rows: 46776697
+  label_column: Label
+  category_column: Category
+  dtype: float32
+  chunk_rows: 1000000
+
+audit:
+  cache: data/processed/ciciot2023.parquet
+  out_dir: results/audit
+  work_dir: data/interim/dup_buckets     # temporary hash buckets, deleted after use
+  leak_cap_per_label: 20000              # rows per label in the one-column test sample
+  leak_folds: 5
+  leak_tree_max_depth: 10
+  leak_tree_min_leaf: 5
+
+runtime:
+  n_jobs: 3            # 4 logical CPUs on the development laptop; keep one free
+  min_free_ram_gb: 1.5 # experiments stop (finished runs are kept) when less RAM is free
+  hash_chunk_mb: 8

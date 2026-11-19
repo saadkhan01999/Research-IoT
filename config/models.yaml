@@ -1,0 +1,66 @@
+# Model settings. `defaults` are the library defaults most published papers use (with the
+# number of threads fixed); `search` is the random-search space used when a run is "tuned".
+# Every model gets the same tuning budget (experiment.tuning_trials in the profile).
+#
+# Two documented changes after the quick profile (2026-11-11, decision D-019):
+#  - Forest "defaults" are limited to max_depth 24. Unlimited-depth forests reached 1.2-1.4 GB
+#    on 200,000 training rows and cannot be trained on 1,000,000 rows within 8 GB of RAM.
+#  - The LightGBM search space leaves out learning rate 0.2 and 255 leaves: that setting
+#    collapsed on the validation sample (macro-F1 0.23), a known instability of multi-class
+#    boosting with very rare classes.
+
+features:
+  drop: [LLC, Tot size]          # exact copies of IPv and AVG in every row (D-015)
+  nonfinite: median              # +/-inf -> missing -> training-set median (fit on train only)
+
+split:
+  shares: {train: 0.7, val: 0.1, test: 0.2}
+  gap_rows: 100                  # rows left unused after each block boundary (max 2% of a file)
+  min_files_for_file_split: 3    # labels with fewer source files are split in blocks per file
+
+tuning:
+  metric: macro_f1               # on the validation sample, natural-mix weights
+  max_train_rows: 200000         # tuning fits use at most this many training rows (time limit)
+  tuned_on_scheme: L8            # tuned once per model, protocol and profile on the first seed;
+                                 # the chosen settings are reused for other seeds and schemes
+
+models:
+  decision_tree:
+    defaults: {}
+    search:
+      max_depth: [8, 12, 16, 24, null]
+      min_samples_leaf: [1, 5, 20, 50]
+      criterion: [gini, entropy]
+  random_forest:
+    defaults: {n_estimators: 100, max_depth: 24}
+    search:
+      n_estimators: [100, 200]
+      max_depth: [16, 24, null]
+      min_samples_leaf: [1, 5, 20]
+      max_features: [sqrt, 0.5]
+  extra_trees:
+    defaults: {n_estimators: 100, max_depth: 24}
+    search:
+      n_estimators: [100, 200]
+      max_depth: [16, 24, null]
+      min_samples_leaf: [1, 5, 20]
+      max_features: [sqrt, 0.5]
+  xgboost:
+    defaults: {tree_method: hist}
+    search:
+      n_estimators: [200, 400, 800]
+      max_depth: [4, 6, 8, 10]
+      learning_rate: [0.05, 0.1, 0.2]
+      subsample: [0.7, 1.0]
+      colsample_bytree: [0.7, 1.0]
+      min_child_weight: [1, 5]
+  lightgbm:
+    defaults: {verbose: -1}
+    search:
+      n_estimators: [200, 400, 800]
+      num_leaves: [15, 31, 63, 127]
+      learning_rate: [0.02, 0.05, 0.1]
+      min_child_samples: [20, 50, 100]
+      subsample: [0.7, 1.0]
+      subsample_freq: [1]
+      colsample_bytree: [0.7, 1.0]

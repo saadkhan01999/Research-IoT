@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "iotml"
+version = "0.1.0"
+description = "Leakage-audited multi-class evaluation of IoT attack classifiers on CICIoT2023"
+readme = "README.md"
+requires-python = ">=3.11"
+# Exact versions used for the paper are pinned in requirements-lock.txt.
+dependencies = [
+    "numpy",
+    "pandas",
+    "pyarrow",
+    "scikit-learn",
+    "xgboost",
+    "lightgbm",
+    "imbalanced-learn",
+    "scipy",
+    "matplotlib",
+    "pyyaml",
+    "tqdm",
+    "psutil",
+    "joblib",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff", "mypy", "types-PyYAML"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+# scripts/prep holds the one-off scripts that built the merged raw file; they are kept
+# unchanged as a provenance record and are not part of the package.
+extend-exclude = ["scripts/prep", "refs"]   # refs/ holds the independent checker's script
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "N", "SIM"]
+
+[tool.ruff.lint.per-file-ignores]
+"scripts/*.py" = ["N999"]  # numbered script names such as 00_env_check.py
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+files = ["src/iotml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

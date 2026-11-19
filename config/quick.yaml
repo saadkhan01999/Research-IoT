@@ -1,0 +1,19 @@
+# Quick profile: checks that the whole pipeline runs, in minutes. Not used for paper results.
+profile: quick
+runtime:
+  min_free_ram_gb: 1.0     # small samples: about 0.6 GB in use at most
+experiment:
+  seeds: [42]
+  careful_seeds: [42]
+  label_schemes: [L8, L34]
+  protocols: [random]
+  models: [decision_tree, random_forest, lightgbm]
+  sampling:
+    train: {mode: capped, cap_per_label: 5000}
+    val:   {mode: capped, cap_per_label: 1000}
+    test:  {mode: capped, cap_per_label: 2000}
+  natural_train_rows: 200000      # used by the "as published" baseline (natural class mix)
+  imbalance: {train_rows: 100000, target_per_class: 3000}   # Step 6 imbalance study
+  neural: {epochs: 3, batch_size: 1024, lr: 0.001, patience: 2, hidden: 32}
+  windows: {k: 10, train_cap: 500, val_cap: 150, test_cap: 300}
+  tuning_trials: 2

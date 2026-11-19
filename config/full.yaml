@@ -1,0 +1,22 @@
+# Full profile: the runs reported in the paper.
+# The five seeds were fixed on 2026-11-11, before any model was trained, and are never changed
+# after seeing results (no seed picking).
+profile: full
+runtime:
+  min_free_ram_gb: 1.2     # D-021: about 0.6 million training rows; Chrome/Edge closed
+  max_wait_min: 60         # a run waits this long for memory before it stops
+experiment:
+  seeds: [11, 23, 37, 53, 71]   # all five: the as-published replication (natural mix)
+  careful_seeds: [11, 23, 37]   # D-021: capped/tuned runs on every protocol use the first three
+  label_schemes: [L8, L34, LM, L2]
+  protocols: [random, random_dedup, file_grouped, order_within_file, unseen_type]
+  models: [decision_tree, random_forest, extra_trees, xgboost, lightgbm, mlp, cnn1d, gru]
+  sampling:
+    train: {mode: capped, cap_per_label: 20000}   # D-021 (was 50000): laptop run time
+    val:   {mode: capped, cap_per_label: 10000}
+    test:  {mode: capped, cap_per_label: 20000}
+  natural_train_rows: 1000000
+  imbalance: {train_rows: 300000, target_per_class: 10000}  # Step 6 imbalance study
+  neural: {epochs: 15, batch_size: 1024, lr: 0.001, patience: 3, hidden: 64}
+  windows: {k: 10, train_cap: 5000, val_cap: 1000, test_cap: 2000}   # windows per label
+  tuning_trials: 20               # same budget for every model (random search on the val split)

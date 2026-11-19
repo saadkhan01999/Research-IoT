@@ -1,0 +1,52 @@
+# Features listed in Table 4 of Neto et al., Sensors 23(13):5941, 2023 (the CICIoT2023 paper),
+# read from the Europe PMC full text (refs/fulltext/A02). `ours` is the column name in the
+# per-pcap CSV release used here; null means the column is not in our files.
+paper_table4:
+  - {no: 1,  paper: ts,              ours: null,            note: timestamp}
+  - {no: 2,  paper: flow duration,   ours: null}
+  - {no: 3,  paper: Header Length,   ours: Header_Length}
+  - {no: 4,  paper: Protocol Type,   ours: Protocol Type}
+  - {no: 5,  paper: Duration,        ours: Time_To_Live,    note: "the paper defines Duration as Time-to-Live (ttl)"}
+  - {no: 6,  paper: Rate,            ours: Rate}
+  - {no: 7,  paper: Srate,           ours: null}
+  - {no: 8,  paper: Drate,           ours: null}
+  - {no: 9,  paper: fin flag number, ours: fin_flag_number}
+  - {no: 10, paper: syn flag number, ours: syn_flag_number}
+  - {no: 11, paper: rst flag number, ours: rst_flag_number}
+  - {no: 12, paper: psh flag number, ours: psh_flag_number}
+  - {no: 13, paper: ack flag number, ours: ack_flag_number}
+  - {no: 14, paper: ece flag number, ours: ece_flag_number}
+  - {no: 15, paper: cwr flag number, ours: cwr_flag_number}
+  - {no: 16, paper: ack count,       ours: ack_count}
+  - {no: 17, paper: syn count,       ours: syn_count}
+  - {no: 18, paper: fin count,       ours: fin_count}
+  - {no: 19, paper: urg count,       ours: null}
+  - {no: 20, paper: rst count,       ours: rst_count}
+  - {no: 21, paper: HTTP,            ours: HTTP}
+  - {no: 22, paper: HTTPS,           ours: HTTPS}
+  - {no: 23, paper: DNS,             ours: DNS}
+  - {no: 24, paper: Telnet,          ours: Telnet}
+  - {no: 25, paper: SMTP,            ours: SMTP}
+  - {no: 26, paper: SSH,             ours: SSH}
+  - {no: 27, paper: IRC,             ours: IRC}
+  - {no: 28, paper: TCP,             ours: TCP}
+  - {no: 29, paper: UDP,             ours: UDP}
+  - {no: 30, paper: DHCP,            ours: DHCP}
+  - {no: 31, paper: ARP,             ours: ARP}
+  - {no: 32, paper: ICMP,            ours: ICMP}
+  - {no: 33, paper: IPv,             ours: IPv}
+  - {no: 34, paper: LLC,             ours: LLC}
+  - {no: 35, paper: Tot sum,         ours: Tot sum}
+  - {no: 36, paper: Min,             ours: Min}
+  - {no: 37, paper: Max,             ours: Max}
+  - {no: 38, paper: AVG,             ours: AVG}
+  - {no: 39, paper: Std,             ours: Std}
+  - {no: 40, paper: Tot size,        ours: Tot size}
+  - {no: 41, paper: IAT,             ours: IAT,             note: "time difference with the previous packet"}
+  - {no: 42, paper: Number,          ours: Number,          note: "number of packets in the flow"}
+  - {no: 43, paper: Magnitude,       ours: null}
+  - {no: 44, paper: Radius,          ours: null}
+  - {no: 45, paper: Covariance,      ours: null}
+  - {no: 46, paper: Variance,        ours: Variance}
+  - {no: 47, paper: Weight,          ours: null}
+only_in_ours: [IGMP]
