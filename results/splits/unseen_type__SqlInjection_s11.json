@@ -1,0 +1,12 @@
+{
+ "protocol": "unseen_type__SqlInjection",
+ "seed": 11,
+ "rows": {
+  "train": 15182881,
+  "val": 2170365,
+  "test": 4337203,
+  "unused": 25086248
+ },
+ "held_out": "SqlInjection",
+ "base_protocol": "random_dedup"
+}

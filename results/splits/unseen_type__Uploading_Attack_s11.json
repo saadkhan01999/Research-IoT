@@ -1,0 +1,12 @@
+{
+ "protocol": "unseen_type__Uploading_Attack",
+ "seed": 11,
+ "rows": {
+  "train": 15185661,
+  "val": 2170748,
+  "test": 4337203,
+  "unused": 25083085
+ },
+ "held_out": "Uploading_Attack",
+ "base_protocol": "random_dedup"
+}

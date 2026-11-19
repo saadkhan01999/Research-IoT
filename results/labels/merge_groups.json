@@ -1,0 +1,22 @@
+{
+  "groups": [
+    [
+      "DDoS-SYN_Flood",
+      "DDoS-SynonymousIP_Flood",
+      "DoS-SYN_Flood"
+    ],
+    [
+      "DDoS-TCP_Flood",
+      "DoS-TCP_Flood"
+    ],
+    [
+      "DDoS-UDP_Flood",
+      "DoS-UDP_Flood"
+    ]
+  ],
+  "rule": {
+    "min_shared_share": 0.1
+  },
+  "computed_from": "results/audit/conflict_pairs.csv (Step 2, all 46,776,697 rows)",
+  "computed_at": "2026-11-11 14:09:04"
+}

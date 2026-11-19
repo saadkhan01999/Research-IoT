@@ -1,0 +1,12 @@
+{
+ "protocol": "unseen_type__CommandInjection",
+ "seed": 11,
+ "rows": {
+  "train": 15182747,
+  "val": 2170344,
+  "test": 4337203,
+  "unused": 25086403
+ },
+ "held_out": "CommandInjection",
+ "base_protocol": "random_dedup"
+}

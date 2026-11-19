@@ -1,0 +1,12 @@
+{
+ "protocol": "unseen_type__DDoS-HTTP_Flood",
+ "seed": 11,
+ "rows": {
+  "train": 15166438,
+  "val": 2167938,
+  "test": 4337203,
+  "unused": 25105118
+ },
+ "held_out": "DDoS-HTTP_Flood",
+ "base_protocol": "random_dedup"
+}

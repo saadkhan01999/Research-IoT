@@ -1,0 +1,10 @@
+{
+ "protocol": "random",
+ "seed": 53,
+ "rows": {
+  "train": 32743687,
+  "val": 4677670,
+  "test": 9355340,
+  "unused": 0
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "protocol": "unseen_type__DDoS-SynonymousIP_Flood",
+ "seed": 11,
+ "rows": {
+  "train": 14336513,
+  "val": 2049065,
+  "test": 4337203,
+  "unused": 26053916
+ },
+ "held_out": "DDoS-SynonymousIP_Flood",
+ "base_protocol": "random_dedup"
+}

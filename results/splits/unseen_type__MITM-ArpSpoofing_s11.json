@@ -1,0 +1,12 @@
+{
+ "protocol": "unseen_type__MITM-ArpSpoofing",
+ "seed": 11,
+ "rows": {
+  "train": 14990118,
+  "val": 2142825,
+  "test": 4337203,
+  "unused": 25306551
+ },
+ "held_out": "MITM-ArpSpoofing",
+ "base_protocol": "random_dedup"
+}

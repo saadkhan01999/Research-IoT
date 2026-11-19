@@ -1,0 +1,277 @@
+{
+ "best_params": {
+  "colsample_bytree": 0.7,
+  "learning_rate": 0.02,
+  "min_child_samples": 20,
+  "n_estimators": 800,
+  "num_leaves": 63,
+  "subsample": 1.0,
+  "subsample_freq": 1
+ },
+ "trials": [
+  {
+   "params": {
+    "colsample_bytree": 0.7,
+    "learning_rate": 0.02,
+    "min_child_samples": 50,
+    "n_estimators": 800,
+    "num_leaves": 127,
+    "subsample": 0.7,
+    "subsample_freq": 1
+   },
+   "val_macro_f1": 0.6530449119941485,
+   "seconds": 357.5600274000317
+  },
+  {
+   "params": {
+    "colsample_bytree": 1.0,
+    "learning_rate": 0.02,
+    "min_child_samples": 50,
+    "n_estimators": 200,
+    "num_leaves": 15,
+    "subsample": 0.7,
+    "subsample_freq": 1
+   },
+   "val_macro_f1": 0.6516255198172481,
+   "seconds": 29.146325200097635
+  },
+  {
+   "params": {
+    "colsample_bytree": 0.7,
+    "learning_rate": 0.02,
+    "min_child_samples": 20,
+    "n_estimators": 200,
+    "num_leaves": 15,
+    "subsample": 1.0,
+    "subsample_freq": 1
+   },
+   "val_macro_f1": 0.6516518728091134,
+   "seconds": 33.19928890001029
+  },
+  {
+   "params": {
+    "colsample_bytree": 1.0,
+    "learning_rate": 0.1,
+    "min_child_samples": 50,
+    "n_estimators": 400,
+    "num_leaves": 63,
+    "subsample": 1.0,
+    "subsample_freq": 1
+   },
+   "val_macro_f1": 0.6454176713470736,
+   "seconds": 109.9821418998763
+  },
+  {
+   "params": {
+    "colsample_bytree": 1.0,
+    "learning_rate": 0.05,
+    "min_child_samples": 50,
+    "n_estimators": 800,
+    "num_leaves": 15,
+    "subsample": 1.0,
+    "subsample_freq": 1
+   },
+   "val_macro_f1": 0.6609826750522134,
+   "seconds": 147.83866650005803
+  },
+  {
+   "params": {
+    "colsample_bytree": 0.7,
+    "learning_rate": 0.05,
+    "min_child_samples": 50,
+    "n_estimators": 800,
+    "num_leaves": 127,
+    "subsample": 1.0,
+    "subsample_freq": 1
+   },
+   "val_macro_f1": 0.644441802769471,
+   "seconds": 311.4772933998611
+  },
+  {
+   "params": {
+    "colsample_bytree": 0.7,
+    "learning_rate": 0.05,
+    "min_child_samples": 100,
+    "n_estimators": 200,
+    "num_leaves": 127,
+    "subsample": 1.0,
+    "subsample_freq": 1
+   },
+   "val_macro_f1": 0.6557967546839016,
+   "seconds": 78.68736379989423
+  },
+  {
+   "params": {
+    "colsample_bytree": 0.7,
+    "learning_rate": 0.02,
+    "min_child_samples": 50,
+    "n_estimators": 400,
+    "num_leaves": 31,
+    "subsample": 0.7,
+    "subsample_freq": 1
+   },
+   "val_macro_f1": 0.6603029680756817,
+   "seconds": 92.60761139984243
+  },
+  {
+   "params": {
+    "colsample_bytree": 1.0,
+    "learning_rate": 0.02,
+    "min_child_samples": 20,
+    "n_estimators": 400,
+    "num_leaves": 127,
+    "subsample": 0.7,
+    "subsample_freq": 1
+   },
+   "val_macro_f1": 0.6571028500471557,
+   "seconds": 160.8600040001329
+  },
+  {
+   "params": {
+    "colsample_bytree": 0.7,
+    "learning_rate": 0.02,
+    "min_child_samples": 20,
+    "n_estimators": 800,
+    "num_leaves": 63,
+    "subsample": 1.0,
+    "subsample_freq": 1
+   },
+   "val_macro_f1": 0.6618442340167561,
+   "seconds": 228.94723459985107
+  },
+  {
+   "params": {
+    "colsample_bytree": 1.0,
+    "learning_rate": 0.02,
+    "min_child_samples": 100,
+    "n_estimators": 800,
+    "num_leaves": 127,
+    "subsample": 0.7,
+    "subsample_freq": 1
+   },
+   "val_macro_f1": 0.651976974273673,
+   "seconds": 383.76635200018063
+  },
+  {
+   "params": {
+    "colsample_bytree": 0.7,
+    "learning_rate": 0.1,
+    "min_child_samples": 50,
+    "n_estimators": 200,
+    "num_leaves": 127,
+    "subsample": 1.0,
+    "subsample_freq": 1
+   },
+   "val_macro_f1": 0.6462237256644056,
+   "seconds": 73.53178570000455
+  },
+  {
+   "params": {
+    "colsample_bytree": 0.7,
+    "learning_rate": 0.02,
+    "min_child_samples": 20,
+    "n_estimators": 200,
+    "num_leaves": 63,
+    "subsample": 1.0,
+    "subsample_freq": 1
+   },
+   "val_macro_f1": 0.6612449050441516,
+   "seconds": 53.147817000048235
+  },
+  {
+   "params": {
+    "colsample_bytree": 1.0,
+    "learning_rate": 0.1,
+    "min_child_samples": 20,
+    "n_estimators": 400,
+    "num_leaves": 15,
+    "subsample": 0.7,
+    "subsample_freq": 1
+   },
+   "val_macro_f1": 0.5490440226345907,
+   "seconds": 75.97951570013538
+  },
+  {
+   "params": {
+    "colsample_bytree": 1.0,
+    "learning_rate": 0.02,
+    "min_child_samples": 20,
+    "n_estimators": 200,
+    "num_leaves": 127,
+    "subsample": 1.0,
+    "subsample_freq": 1
+   },
+   "val_macro_f1": 0.6578863346560975,
+   "seconds": 67.78274189983495
+  },
+  {
+   "params": {
+    "colsample_bytree": 0.7,
+    "learning_rate": 0.1,
+    "min_child_samples": 50,
+    "n_estimators": 200,
+    "num_leaves": 15,
+    "subsample": 1.0,
+    "subsample_freq": 1
+   },
+   "val_macro_f1": 0.6548239836074176,
+   "seconds": 31.687870499910787
+  },
+  {
+   "params": {
+    "colsample_bytree": 1.0,
+    "learning_rate": 0.1,
+    "min_child_samples": 50,
+    "n_estimators": 200,
+    "num_leaves": 31,
+    "subsample": 1.0,
+    "subsample_freq": 1
+   },
+   "val_macro_f1": 0.657091996702001,
+   "seconds": 36.873562100110576
+  },
+  {
+   "params": {
+    "colsample_bytree": 1.0,
+    "learning_rate": 0.05,
+    "min_child_samples": 20,
+    "n_estimators": 800,
+    "num_leaves": 15,
+    "subsample": 0.7,
+    "subsample_freq": 1
+   },
+   "val_macro_f1": 0.6600376126438305,
+   "seconds": 151.0279683000408
+  },
+  {
+   "params": {
+    "colsample_bytree": 0.7,
+    "learning_rate": 0.02,
+    "min_child_samples": 100,
+    "n_estimators": 400,
+    "num_leaves": 15,
+    "subsample": 1.0,
+    "subsample_freq": 1
+   },
+   "val_macro_f1": 0.6562494905289968,
+   "seconds": 72.8351801999379
+  },
+  {
+   "params": {
+    "colsample_bytree": 1.0,
+    "learning_rate": 0.05,
+    "min_child_samples": 20,
+    "n_estimators": 800,
+    "num_leaves": 127,
+    "subsample": 1.0,
+    "subsample_freq": 1
+   },
+   "val_macro_f1": 0.6431698302693796,
+   "seconds": 284.0111470001284
+  }
+ ],
+ "seed": 11,
+ "scheme": "L8",
+ "train_rows": 200000,
+ "metric": "macro_f1"
+}

@@ -1,0 +1,12 @@
+{
+ "protocol": "unseen_type__Recon-PortScan",
+ "seed": 11,
+ "rows": {
+  "train": 15130435,
+  "val": 2162769,
+  "test": 4337203,
+  "unused": 25146290
+ },
+ "held_out": "Recon-PortScan",
+ "base_protocol": "random_dedup"
+}

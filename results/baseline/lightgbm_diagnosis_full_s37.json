@@ -1,0 +1,56 @@
+{
+  "seed": 37,
+  "sample": "random_s37_full_train_natural_n1000000.parquet",
+  "threads": 1,
+  "training_rows": 1000000,
+  "classes": 34,
+  "smallest_class_rows": 27,
+  "runs": {
+    "defaults": {
+      "params": {},
+      "train_logloss_first": 1.730774680884312,
+      "train_logloss_min": 1.3352802087898976,
+      "train_logloss_last": 14.545254366756613,
+      "round_of_min": 10,
+      "rounds_loss_increased": 33,
+      "nan_or_inf_rounds": 0,
+      "train_accuracy": 0.578871,
+      "train_logloss_every_10": [
+        1.7308,
+        2.3999,
+        3.4063,
+        11.169,
+        17.1309,
+        13.0192,
+        14.5453,
+        14.5453,
+        14.5453,
+        14.5453
+      ]
+    },
+    "learning_rate_0.02": {
+      "params": {
+        "learning_rate": 0.02
+      },
+      "train_logloss_first": 2.3796130493590764,
+      "train_logloss_min": 0.476491559926538,
+      "train_logloss_last": 0.476491559926538,
+      "round_of_min": 100,
+      "rounds_loss_increased": 3,
+      "nan_or_inf_rounds": 0,
+      "train_accuracy": 0.788774,
+      "train_logloss_every_10": [
+        2.3796,
+        1.5289,
+        1.1448,
+        0.9202,
+        0.777,
+        0.6748,
+        0.6046,
+        0.5547,
+        0.5207,
+        0.4944
+      ]
+    }
+  }
+}

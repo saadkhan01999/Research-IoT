@@ -1,0 +1,12 @@
+{
+ "protocol": "unseen_type__DDoS-RSTFINFLOOD",
+ "seed": 11,
+ "rows": {
+  "train": 14274657,
+  "val": 2039996,
+  "test": 4337203,
+  "unused": 26124841
+ },
+ "held_out": "DDoS-RSTFINFLOOD",
+ "base_protocol": "random_dedup"
+}

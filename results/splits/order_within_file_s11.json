@@ -1,0 +1,15 @@
+{
+ "protocol": "order_within_file",
+ "seed": 11,
+ "rows": {
+  "train": 32743686,
+  "val": 1957707,
+  "test": 3942690,
+  "unused": 8132614
+ },
+ "gap_rows": 100,
+ "purged_rows_seen_in_train": {
+  "val": 2689254,
+  "test": 5381940
+ }
+}

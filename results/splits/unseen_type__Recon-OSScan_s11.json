@@ -1,0 +1,12 @@
+{
+ "protocol": "unseen_type__Recon-OSScan",
+ "seed": 11,
+ "rows": {
+  "train": 15119010,
+  "val": 2161256,
+  "test": 4337203,
+  "unused": 25159228
+ },
+ "held_out": "Recon-OSScan",
+ "base_protocol": "random_dedup"
+}

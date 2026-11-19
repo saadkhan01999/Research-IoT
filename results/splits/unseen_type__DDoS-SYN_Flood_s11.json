@@ -1,0 +1,12 @@
+{
+ "protocol": "unseen_type__DDoS-SYN_Flood",
+ "seed": 11,
+ "rows": {
+  "train": 13901474,
+  "val": 1988121,
+  "test": 4337203,
+  "unused": 26549899
+ },
+ "held_out": "DDoS-SYN_Flood",
+ "base_protocol": "random_dedup"
+}

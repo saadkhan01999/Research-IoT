@@ -1,0 +1,12 @@
+{
+ "protocol": "unseen_type__DDoS-PSHACK_FLOOD",
+ "seed": 11,
+ "rows": {
+  "train": 13993607,
+  "val": 2000311,
+  "test": 4337203,
+  "unused": 26445576
+ },
+ "held_out": "DDoS-PSHACK_FLOOD",
+ "base_protocol": "random_dedup"
+}

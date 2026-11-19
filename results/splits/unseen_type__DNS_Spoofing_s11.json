@@ -1,0 +1,12 @@
+{
+ "protocol": "unseen_type__DNS_Spoofing",
+ "seed": 11,
+ "rows": {
+  "train": 15064576,
+  "val": 2153569,
+  "test": 4337203,
+  "unused": 25221349
+ },
+ "held_out": "DNS_Spoofing",
+ "base_protocol": "random_dedup"
+}

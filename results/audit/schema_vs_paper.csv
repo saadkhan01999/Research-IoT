@@ -1,0 +1,48 @@
+False,paper,ours,note,present_in_ours
+1,ts,,timestamp,False
+2,flow duration,,,False
+3,Header Length,Header_Length,,True
+4,Protocol Type,Protocol Type,,True
+5,Duration,Time_To_Live,the paper defines Duration as Time-to-Live (ttl),True
+6,Rate,Rate,,True
+7,Srate,,,False
+8,Drate,,,False
+9,fin flag number,fin_flag_number,,True
+10,syn flag number,syn_flag_number,,True
+11,rst flag number,rst_flag_number,,True
+12,psh flag number,psh_flag_number,,True
+13,ack flag number,ack_flag_number,,True
+14,ece flag number,ece_flag_number,,True
+15,cwr flag number,cwr_flag_number,,True
+16,ack count,ack_count,,True
+17,syn count,syn_count,,True
+18,fin count,fin_count,,True
+19,urg count,,,False
+20,rst count,rst_count,,True
+21,HTTP,HTTP,,True
+22,HTTPS,HTTPS,,True
+23,DNS,DNS,,True
+24,Telnet,Telnet,,True
+25,SMTP,SMTP,,True
+26,SSH,SSH,,True
+27,IRC,IRC,,True
+28,TCP,TCP,,True
+29,UDP,UDP,,True
+30,DHCP,DHCP,,True
+31,ARP,ARP,,True
+32,ICMP,ICMP,,True
+33,IPv,IPv,,True
+34,LLC,LLC,,True
+35,Tot sum,Tot sum,,True
+36,Min,Min,,True
+37,Max,Max,,True
+38,AVG,AVG,,True
+39,Std,Std,,True
+40,Tot size,Tot size,,True
+41,IAT,IAT,time difference with the previous packet,True
+42,Number,Number,number of packets in the flow,True
+43,Magnitude,,,False
+44,Radius,,,False
+45,Covariance,,,False
+46,Variance,Variance,,True
+47,Weight,,,False

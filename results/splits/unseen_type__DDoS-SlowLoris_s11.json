@@ -1,0 +1,12 @@
+{
+ "protocol": "unseen_type__DDoS-SlowLoris",
+ "seed": 11,
+ "rows": {
+  "train": 15170200,
+  "val": 2168545,
+  "test": 4337203,
+  "unused": 25100749
+ },
+ "held_out": "DDoS-SlowLoris",
+ "base_protocol": "random_dedup"
+}

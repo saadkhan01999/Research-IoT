@@ -1,0 +1,12 @@
+{
+ "protocol": "unseen_type__Mirai-greeth_flood",
+ "seed": 11,
+ "rows": {
+  "train": 14531743,
+  "val": 2076667,
+  "test": 4337203,
+  "unused": 25831084
+ },
+ "held_out": "Mirai-greeth_flood",
+ "base_protocol": "random_dedup"
+}

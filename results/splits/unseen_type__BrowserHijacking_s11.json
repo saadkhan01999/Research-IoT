@@ -1,0 +1,12 @@
+{
+ "protocol": "unseen_type__BrowserHijacking",
+ "seed": 11,
+ "rows": {
+  "train": 15182549,
+  "val": 2170303,
+  "test": 4337203,
+  "unused": 25086642
+ },
+ "held_out": "BrowserHijacking",
+ "base_protocol": "random_dedup"
+}

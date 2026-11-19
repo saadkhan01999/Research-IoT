@@ -1,0 +1,142 @@
+{
+ "spec": {
+  "protocol": "random",
+  "scheme": "L2",
+  "model": "random_forest",
+  "train_mode": "capped",
+  "params_mode": "tuned",
+  "seed": 37,
+  "profile": "full"
+ },
+ "params": {
+  "n_estimators": 200,
+  "max_depth": 16,
+  "max_features": "sqrt",
+  "min_samples_leaf": 1
+ },
+ "features_used": [
+  "Header_Length",
+  "Protocol Type",
+  "Time_To_Live",
+  "Rate",
+  "fin_flag_number",
+  "syn_flag_number",
+  "rst_flag_number",
+  "psh_flag_number",
+  "ack_flag_number",
+  "ece_flag_number",
+  "cwr_flag_number",
+  "ack_count",
+  "syn_count",
+  "fin_count",
+  "rst_count",
+  "HTTP",
+  "HTTPS",
+  "DNS",
+  "Telnet",
+  "SMTP",
+  "SSH",
+  "IRC",
+  "TCP",
+  "UDP",
+  "DHCP",
+  "ARP",
+  "ICMP",
+  "IGMP",
+  "IPv",
+  "Tot sum",
+  "Min",
+  "Max",
+  "AVG",
+  "Std",
+  "IAT",
+  "Number",
+  "Variance"
+ ],
+ "train_rows": 544505,
+ "train_rows_before_treatment": 544505,
+ "treatment_seconds": 8.998904377222061e-07,
+ "test_rows": 488955,
+ "train_class_counts": {
+  "0": 20000,
+  "1": 524505
+ },
+ "fit_seconds": 138.67433239985257,
+ "predict_seconds": 5.930852799909189,
+ "predict_us_per_row_batch": 12.129649558567127,
+ "model_bytes": 91471702,
+ "free_ram_gb_before": 1.52,
+ "free_ram_gb_after": 0.94,
+ "metrics": {
+  "accuracy": 0.9851354123848892,
+  "macro_precision": 0.966469964752681,
+  "macro_recall": 0.6939409793850533,
+  "macro_f1": 0.7716925441084137,
+  "balanced_accuracy": 0.6939409793850533,
+  "weighted_f1": 0.9820773991382115,
+  "mcc": 0.601556786406226,
+  "macro_fpr": 0.30605902061494555,
+  "unweighted_macro_f1": 0.7430371233763335,
+  "unweighted_accuracy": 0.9685206205069996,
+  "test_rows": 488955,
+  "classes_in_test": 2,
+  "per_class": {
+   "Benign": {
+    "precision": 0.9474381758445845,
+    "recall": 0.3883999999999945,
+    "f1": 0.5509424631697986,
+    "fpr": 0.0005180412298880409,
+    "test_rows": 20000
+   },
+   "Attack": {
+    "precision": 0.9855017536607775,
+    "recall": 0.999481958770112,
+    "f1": 0.9924426250470288,
+    "fpr": 0.611600000000003,
+    "test_rows": 468955
+   }
+  },
+  "confusion_weighted": [
+   [
+    85307.399,
+    134330.601
+   ],
+   [
+    4732.67,
+    9130969.33
+   ]
+  ],
+  "confusion_counts": [
+   [
+    7768,
+    12232
+   ],
+   [
+    3160,
+    465795
+   ]
+  ]
+ },
+ "libraries": {
+  "numpy": "2.4.6",
+  "pandas": "3.1.1",
+  "pyarrow": "26.0.1",
+  "scikit-learn": "1.9.1",
+  "xgboost": "3.2.0",
+  "lightgbm": "4.7.0",
+  "imbalanced-learn": "0.14.2",
+  "scipy": "1.17.1",
+  "matplotlib": "3.11.2",
+  "PyYAML": "6.0.3",
+  "tqdm": "4.70.1",
+  "psutil": "7.2.2",
+  "joblib": "1.6.0",
+  "torch": "2.15.0+cpu",
+  "shap": "0.51.0",
+  "pytest": "9.2.0",
+  "ruff": "0.17.4",
+  "mypy": "2.4.1"
+ },
+ "config_hash": "932b2c7b2466",
+ "created_at": "2026-11-13 11:08:44"
+}

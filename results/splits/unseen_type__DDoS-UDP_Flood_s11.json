@@ -1,0 +1,12 @@
+{
+ "protocol": "unseen_type__DDoS-UDP_Flood",
+ "seed": 11,
+ "rows": {
+  "train": 13757133,
+  "val": 1966846,
+  "test": 4337203,
+  "unused": 26715515
+ },
+ "held_out": "DDoS-UDP_Flood",
+ "base_protocol": "random_dedup"
+}

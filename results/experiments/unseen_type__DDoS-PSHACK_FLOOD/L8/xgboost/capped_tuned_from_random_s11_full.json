@@ -1,0 +1,350 @@
+{
+ "spec": {
+  "protocol": "unseen_type__DDoS-PSHACK_FLOOD",
+  "scheme": "L8",
+  "model": "xgboost",
+  "train_mode": "capped",
+  "params_mode": "tuned_from_random",
+  "seed": 11,
+  "profile": "full"
+ },
+ "params": {
+  "tree_method": "hist",
+  "colsample_bytree": 1.0,
+  "learning_rate": 0.05,
+  "max_depth": 8,
+  "min_child_weight": 1,
+  "n_estimators": 400,
+  "subsample": 0.7
+ },
+ "features_used": [
+  "Header_Length",
+  "Protocol Type",
+  "Time_To_Live",
+  "Rate",
+  "fin_flag_number",
+  "syn_flag_number",
+  "rst_flag_number",
+  "psh_flag_number",
+  "ack_flag_number",
+  "ece_flag_number",
+  "cwr_flag_number",
+  "ack_count",
+  "syn_count",
+  "fin_count",
+  "rst_count",
+  "HTTP",
+  "HTTPS",
+  "DNS",
+  "Telnet",
+  "SMTP",
+  "SSH",
+  "IRC",
+  "TCP",
+  "UDP",
+  "DHCP",
+  "ARP",
+  "ICMP",
+  "IGMP",
+  "IPv",
+  "Tot sum",
+  "Min",
+  "Max",
+  "AVG",
+  "Std",
+  "IAT",
+  "Number",
+  "Variance"
+ ],
+ "train_rows": 524428,
+ "train_rows_before_treatment": 524428,
+ "treatment_seconds": 0.0,
+ "test_rows": 488130,
+ "train_class_counts": {
+  "0": 20000,
+  "1": 9157,
+  "2": 216359,
+  "3": 80000,
+  "4": 60000,
+  "5": 81591,
+  "6": 40000,
+  "7": 17321
+ },
+ "fit_seconds": 497.22337489999336,
+ "fit_wall_seconds": 497.2275595000028,
+ "predict_seconds": 40.147257799995714,
+ "predict_us_per_row_batch": 82.24706082395205,
+ "model_bytes": 20460674,
+ "free_ram_gb_before": 3.44,
+ "free_ram_gb_after": 2.84,
+ "metrics": {
+  "accuracy": 0.8227914175334304,
+  "macro_precision": 0.6725773474721009,
+  "macro_recall": 0.6995786380924962,
+  "macro_f1": 0.670568617574244,
+  "balanced_accuracy": 0.6995786380924962,
+  "weighted_f1": 0.8222846459016812,
+  "mcc": 0.7035343793731725,
+  "macro_fpr": 0.03834528215730044,
+  "unweighted_macro_f1": 0.7282897832032029,
+  "unweighted_accuracy": 0.8533280068834123,
+  "test_rows": 488130,
+  "classes_in_test": 8,
+  "per_class": {
+   "Benign": {
+    "precision": 0.9317723292054891,
+    "recall": 0.5677999999999986,
+    "f1": 0.7056149519685859,
+    "fpr": 0.002210457801138804,
+    "test_rows": 20000
+   },
+   "BruteForce": {
+    "precision": 0.2842294025290088,
+    "recall": 0.4063714063714064,
+    "f1": 0.3344991796975245,
+    "fpr": 0.0006076935188684713,
+    "test_rows": 2574
+   },
+   "DDoS": {
+    "precision": 0.8689222084711965,
+    "recall": 0.8806971320115076,
+    "f1": 0.8747700476728391,
+    "fpr": 0.19004446645797396,
+    "test_rows": 210473
+   },
+   "DoS": {
+    "precision": 0.6219563243839892,
+    "recall": 0.5972757448237921,
+    "f1": 0.6093662335107227,
+    "fpr": 0.08694463086557087,
+    "test_rows": 74314
+   },
+   "Mirai": {
+    "precision": 0.9990306761498273,
+    "recall": 0.996207127545114,
+    "f1": 0.9976169039836801,
+    "fpr": 0.00012358445892703525,
+    "test_rows": 60000
+   },
+   "Recon": {
+    "precision": 0.5601624997860395,
+    "recall": 0.9097441793398102,
+    "f1": 0.6933835744835826,
+    "fpr": 0.023294119934739146,
+    "test_rows": 75805
+   },
+   "Spoofing": {
+    "precision": 0.9089443775896269,
+    "recall": 0.8565834743582527,
+    "f1": 0.8819874827747627,
+    "fpr": 0.001846320240384945,
+    "test_rows": 40000
+   },
+   "Web": {
+    "precision": 0.2056009616616298,
+    "recall": 0.3819500402900886,
+    "f1": 0.26731056650225427,
+    "fpr": 0.0016909839808002469,
+    "test_rows": 4964
+   }
+  },
+  "confusion_weighted": [
+   [
+    124320.946,
+    1521.716,
+    0.0,
+    0.0,
+    0.0,
+    85478.861,
+    5068.739,
+    2561.738
+   ],
+   [
+    177.0,
+    1046.0,
+    0.0,
+    0.0,
+    0.0,
+    1197.0,
+    38.0,
+    116.0
+   ],
+   [
+    0.0,
+    17.079,
+    2248151.165,
+    304143.17,
+    357.229,
+    23.356,
+    1.0,
+    2.0
+   ],
+   [
+    0.0,
+    0.0,
+    337368.754,
+    500527.228,
+    118.018,
+    1.0,
+    0.0,
+    2.0
+   ],
+   [
+    0.0,
+    0.0,
+    1765.371,
+    92.265,
+    489812.132,
+    0.0,
+    7.233,
+    0.0
+   ],
+   [
+    5722.204,
+    840.034,
+    0.0,
+    0.0,
+    0.0,
+    124606.75,
+    2525.224,
+    3274.789
+   ],
+   [
+    3069.016,
+    223.297,
+    1.746,
+    0.0,
+    0.0,
+    8438.537,
+    78253.183,
+    1369.22
+   ],
+   [
+    135.0,
+    32.0,
+    0.0,
+    0.0,
+    0.0,
+    2702.0,
+    199.0,
+    1896.0
+   ]
+  ],
+  "confusion_counts": [
+   [
+    11356,
+    139,
+    0,
+    0,
+    0,
+    7808,
+    463,
+    234
+   ],
+   [
+    177,
+    1046,
+    0,
+    0,
+    0,
+    1197,
+    38,
+    116
+   ],
+   [
+    0,
+    1,
+    192030,
+    18387,
+    47,
+    5,
+    1,
+    2
+   ],
+   [
+    0,
+    0,
+    26271,
+    48032,
+    8,
+    1,
+    0,
+    2
+   ],
+   [
+    0,
+    0,
+    208,
+    10,
+    59781,
+    0,
+    1,
+    0
+   ],
+   [
+    4541,
+    458,
+    0,
+    0,
+    0,
+    68105,
+    1226,
+    1475
+   ],
+   [
+    1215,
+    86,
+    1,
+    0,
+    0,
+    3785,
+    34289,
+    624
+   ],
+   [
+    135,
+    32,
+    0,
+    0,
+    0,
+    2702,
+    199,
+    1896
+   ]
+  ],
+  "unseen_type": {
+   "held_out": "DDoS-PSHACK_FLOOD",
+   "test_rows": 20000,
+   "own_class": "DDoS",
+   "recall_own_class": 0.8876,
+   "predicted_as": {
+    "DDoS": 0.8876,
+    "DoS": 0.1123,
+    "Mirai": 0.0,
+    "BruteForce": 0.0
+   }
+  }
+ },
+ "libraries": {
+  "numpy": "2.4.6",
+  "pandas": "3.1.1",
+  "pyarrow": "26.0.1",
+  "scikit-learn": "1.9.1",
+  "xgboost": "3.2.0",
+  "lightgbm": "4.7.0",
+  "imbalanced-learn": "0.14.2",
+  "scipy": "1.17.1",
+  "matplotlib": "3.11.2",
+  "PyYAML": "6.0.3",
+  "tqdm": "4.70.1",
+  "psutil": "7.2.2",
+  "joblib": "1.6.0",
+  "torch": "2.15.0+cpu",
+  "shap": "0.51.0",
+  "pytest": "9.2.0",
+  "ruff": "0.17.4",
+  "mypy": "2.4.1"
+ },
+ "config_hash": "932b2c7b2466",
+ "created_at": "2026-11-15 22:13:47"
+}

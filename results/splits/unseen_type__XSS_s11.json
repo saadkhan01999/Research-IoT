@@ -1,0 +1,12 @@
+{
+ "protocol": "unseen_type__XSS",
+ "seed": 11,
+ "rows": {
+  "train": 15183865,
+  "val": 2170489,
+  "test": 4337203,
+  "unused": 25085140
+ },
+ "held_out": "XSS",
+ "base_protocol": "random_dedup"
+}

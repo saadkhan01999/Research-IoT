@@ -1,0 +1,12 @@
+{
+ "protocol": "unseen_type__DDoS-ICMP_Fragmentation",
+ "seed": 11,
+ "rows": {
+  "train": 14871521,
+  "val": 2125441,
+  "test": 4337203,
+  "unused": 25442532
+ },
+ "held_out": "DDoS-ICMP_Fragmentation",
+ "base_protocol": "random_dedup"
+}

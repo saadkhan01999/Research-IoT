@@ -1,0 +1,12 @@
+{
+ "protocol": "unseen_type__DDoS-ACK_Fragmentation",
+ "seed": 11,
+ "rows": {
+  "train": 14987936,
+  "val": 2142568,
+  "test": 4337203,
+  "unused": 25308990
+ },
+ "held_out": "DDoS-ACK_Fragmentation",
+ "base_protocol": "random_dedup"
+}

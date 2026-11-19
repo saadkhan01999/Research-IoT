@@ -1,0 +1,428 @@
+{
+ "captured_at": "2026-11-16T13:50:20+00:00",
+ "browser": "msedge.exe",
+ "model": {
+  "name": "LightGBM (L8: 8 classes)",
+  "kind": "lightgbm",
+  "profile": "full",
+  "protocol": "random_dedup",
+  "exported_at": "2026-11-16 18:46:16",
+  "samples": {
+   "natural_mix": {
+    "rows": 5000,
+    "source": "test part of the random_dedup split, natural class mix",
+    "seen_in_training_share": 0.0006
+   },
+   "balanced": {
+    "rows": 5000,
+    "source": "test part of the random_dedup split, equal rows per class",
+    "seen_in_training_share": 0.0002
+   },
+   "capture_stream": {
+    "rows": 5000,
+    "source": "consecutive test rows of single captures under the ordered split (one block per capture)",
+    "seen_in_training_share": 0.0172,
+    "blocks": 25,
+    "rows_per_block": 200
+   }
+  }
+ },
+ "jobs": [
+  {
+   "sample": "natural_mix",
+   "id": "dd10bb8463fa",
+   "rows": 5000,
+   "batch_rows": 200,
+   "accuracy": 0.8394,
+   "macro_f1": 0.6960665317339503
+  },
+  {
+   "sample": "balanced",
+   "id": "d9cbb80f76fd",
+   "rows": 5000,
+   "batch_rows": 200,
+   "accuracy": 0.7202,
+   "macro_f1": 0.7230010732462411
+  },
+  {
+   "sample": "capture_stream",
+   "id": "48ce570dc2fc",
+   "rows": 5000,
+   "batch_rows": 200,
+   "accuracy": 0.9236,
+   "macro_f1": 0.8657520939774228
+  }
+ ],
+ "shots": [
+  {
+   "page": "monitor",
+   "file": "dashboard_monitor.png",
+   "url": "http://localhost:3000/?job=48ce570dc2fc",
+   "css_width": 1180,
+   "css_height": 1591,
+   "scale": 2.0,
+   "dark": false,
+   "cards": [
+    {
+     "kind": "head",
+     "title": "Live monitor",
+     "x": 24,
+     "y": 73.296875,
+     "w": 1132,
+     "h": 29
+    },
+    {
+     "kind": "card",
+     "title": "Data",
+     "x": 24,
+     "y": 118.296875,
+     "w": 749.328125,
+     "h": 264.53125
+    },
+    {
+     "kind": "card",
+     "title": "Replay",
+     "x": 789.328125,
+     "y": 118.296875,
+     "w": 366.65625,
+     "h": 264.53125
+    },
+    {
+     "kind": "card",
+     "title": "Rows scored",
+     "x": 24,
+     "y": 398.828125,
+     "w": 271,
+     "h": 124.46875
+    },
+    {
+     "kind": "card",
+     "title": "Predicted as attack",
+     "x": 311,
+     "y": 398.828125,
+     "w": 271,
+     "h": 124.46875
+    },
+    {
+     "kind": "card",
+     "title": "Alerts",
+     "x": 598,
+     "y": 398.828125,
+     "w": 271,
+     "h": 124.46875
+    },
+    {
+     "kind": "card",
+     "title": "Live macro-F1 / accuracy",
+     "x": 885,
+     "y": 398.828125,
+     "w": 271,
+     "h": 124.46875
+    },
+    {
+     "kind": "card",
+     "title": "Predicted class per batch",
+     "x": 24,
+     "y": 539.296875,
+     "w": 749.328125,
+     "h": 311.234375
+    },
+    {
+     "kind": "card",
+     "title": "Rows per predicted class",
+     "x": 789.328125,
+     "y": 539.296875,
+     "w": 366.65625,
+     "h": 311.234375
+    },
+    {
+     "kind": "card",
+     "title": "Model confidence",
+     "x": 24,
+     "y": 866.53125,
+     "w": 366.65625,
+     "h": 405.75
+    },
+    {
+     "kind": "card",
+     "title": "Latest alerts",
+     "x": 406.65625,
+     "y": 866.53125,
+     "w": 749.34375,
+     "h": 405.75
+    },
+    {
+     "kind": "card",
+     "title": "Confusion matrix (labelled rows)",
+     "x": 24,
+     "y": 1288.28125,
+     "w": 1132,
+     "h": 254.90625
+    }
+   ]
+  },
+  {
+   "page": "model",
+   "file": "dashboard_model.png",
+   "url": "http://localhost:3000/model",
+   "css_width": 1180,
+   "css_height": 1082,
+   "scale": 2.0,
+   "dark": false,
+   "cards": [
+    {
+     "kind": "head",
+     "title": "LightGBM (L8: 8 classes)",
+     "x": 24,
+     "y": 73.296875,
+     "w": 1132,
+     "h": 29
+    },
+    {
+     "kind": "card",
+     "title": "Measured results",
+     "x": 24,
+     "y": 118.296875,
+     "w": 749.328125,
+     "h": 463.609375
+    },
+    {
+     "kind": "card",
+     "title": "Classes",
+     "x": 789.328125,
+     "y": 118.296875,
+     "w": 366.65625,
+     "h": 463.609375
+    },
+    {
+     "kind": "card",
+     "title": "Training",
+     "x": 24,
+     "y": 597.90625,
+     "w": 558,
+     "h": 436.25
+    },
+    {
+     "kind": "card",
+     "title": "Input features (37)",
+     "x": 598,
+     "y": 597.90625,
+     "w": 558,
+     "h": 436.25
+    }
+   ]
+  },
+  {
+   "page": "history",
+   "file": "dashboard_history.png",
+   "url": "http://localhost:3000/history",
+   "css_width": 1180,
+   "css_height": 900,
+   "scale": 2.0,
+   "dark": false,
+   "cards": [
+    {
+     "kind": "head",
+     "title": "History",
+     "x": 24,
+     "y": 73.296875,
+     "w": 1132,
+     "h": 29
+    },
+    {
+     "kind": "card",
+     "title": "",
+     "x": 24,
+     "y": 118.296875,
+     "w": 1132,
+     "h": 173.5625
+    }
+   ]
+  },
+  {
+   "page": "monitor",
+   "file": "dashboard_monitor_dark.png",
+   "url": "http://localhost:3000/?job=48ce570dc2fc",
+   "css_width": 1180,
+   "css_height": 1591,
+   "scale": 2.0,
+   "dark": true,
+   "cards": [
+    {
+     "kind": "head",
+     "title": "Live monitor",
+     "x": 24,
+     "y": 73.296875,
+     "w": 1132,
+     "h": 29
+    },
+    {
+     "kind": "card",
+     "title": "Data",
+     "x": 24,
+     "y": 118.296875,
+     "w": 749.328125,
+     "h": 264.53125
+    },
+    {
+     "kind": "card",
+     "title": "Replay",
+     "x": 789.328125,
+     "y": 118.296875,
+     "w": 366.65625,
+     "h": 264.53125
+    },
+    {
+     "kind": "card",
+     "title": "Rows scored",
+     "x": 24,
+     "y": 398.828125,
+     "w": 271,
+     "h": 124.46875
+    },
+    {
+     "kind": "card",
+     "title": "Predicted as attack",
+     "x": 311,
+     "y": 398.828125,
+     "w": 271,
+     "h": 124.46875
+    },
+    {
+     "kind": "card",
+     "title": "Alerts",
+     "x": 598,
+     "y": 398.828125,
+     "w": 271,
+     "h": 124.46875
+    },
+    {
+     "kind": "card",
+     "title": "Live macro-F1 / accuracy",
+     "x": 885,
+     "y": 398.828125,
+     "w": 271,
+     "h": 124.46875
+    },
+    {
+     "kind": "card",
+     "title": "Predicted class per batch",
+     "x": 24,
+     "y": 539.296875,
+     "w": 749.328125,
+     "h": 311.234375
+    },
+    {
+     "kind": "card",
+     "title": "Rows per predicted class",
+     "x": 789.328125,
+     "y": 539.296875,
+     "w": 366.65625,
+     "h": 311.234375
+    },
+    {
+     "kind": "card",
+     "title": "Model confidence",
+     "x": 24,
+     "y": 866.53125,
+     "w": 366.65625,
+     "h": 405.75
+    },
+    {
+     "kind": "card",
+     "title": "Latest alerts",
+     "x": 406.65625,
+     "y": 866.53125,
+     "w": 749.34375,
+     "h": 405.75
+    },
+    {
+     "kind": "card",
+     "title": "Confusion matrix (labelled rows)",
+     "x": 24,
+     "y": 1288.28125,
+     "w": 1132,
+     "h": 254.90625
+    }
+   ]
+  },
+  {
+   "page": "model",
+   "file": "dashboard_model_dark.png",
+   "url": "http://localhost:3000/model",
+   "css_width": 1180,
+   "css_height": 1082,
+   "scale": 2.0,
+   "dark": true,
+   "cards": [
+    {
+     "kind": "head",
+     "title": "LightGBM (L8: 8 classes)",
+     "x": 24,
+     "y": 73.296875,
+     "w": 1132,
+     "h": 29
+    },
+    {
+     "kind": "card",
+     "title": "Measured results",
+     "x": 24,
+     "y": 118.296875,
+     "w": 749.328125,
+     "h": 463.609375
+    },
+    {
+     "kind": "card",
+     "title": "Classes",
+     "x": 789.328125,
+     "y": 118.296875,
+     "w": 366.65625,
+     "h": 463.609375
+    },
+    {
+     "kind": "card",
+     "title": "Training",
+     "x": 24,
+     "y": 597.90625,
+     "w": 558,
+     "h": 436.25
+    },
+    {
+     "kind": "card",
+     "title": "Input features (37)",
+     "x": 598,
+     "y": 597.90625,
+     "w": 558,
+     "h": 436.25
+    }
+   ]
+  },
+  {
+   "page": "history",
+   "file": "dashboard_history_dark.png",
+   "url": "http://localhost:3000/history",
+   "css_width": 1180,
+   "css_height": 900,
+   "scale": 2.0,
+   "dark": true,
+   "cards": [
+    {
+     "kind": "head",
+     "title": "History",
+     "x": 24,
+     "y": 73.296875,
+     "w": 1132,
+     "h": 29
+    },
+    {
+     "kind": "card",
+     "title": "",
+     "x": 24,
+     "y": 118.296875,
+     "w": 1132,
+     "h": 173.5625
+    }
+   ]
+  }
+ ]
+}

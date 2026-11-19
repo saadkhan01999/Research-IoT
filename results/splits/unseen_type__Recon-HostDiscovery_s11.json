@@ -1,0 +1,12 @@
+{
+ "protocol": "unseen_type__Recon-HostDiscovery",
+ "seed": 11,
+ "rows": {
+  "train": 15092840,
+  "val": 2157593,
+  "test": 4337203,
+  "unused": 25189061
+ },
+ "held_out": "Recon-HostDiscovery",
+ "base_protocol": "random_dedup"
+}

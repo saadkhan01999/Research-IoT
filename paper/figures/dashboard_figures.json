@@ -1,0 +1,94 @@
+{
+ "source": "C:\\Research\\iot-attack-dashboard\\docs\\screenshots",
+ "model": {
+  "name": "LightGBM (L8: 8 classes)",
+  "kind": "lightgbm",
+  "profile": "full",
+  "protocol": "random_dedup",
+  "exported_at": "2026-11-16 18:46:16",
+  "samples": {
+   "natural_mix": {
+    "rows": 5000,
+    "source": "test part of the random_dedup split, natural class mix",
+    "seen_in_training_share": 0.0006
+   },
+   "balanced": {
+    "rows": 5000,
+    "source": "test part of the random_dedup split, equal rows per class",
+    "seen_in_training_share": 0.0002
+   },
+   "capture_stream": {
+    "rows": 5000,
+    "source": "consecutive test rows of single captures under the ordered split (one block per capture)",
+    "seen_in_training_share": 0.0172,
+    "blocks": 25,
+    "rows_per_block": 200
+   }
+  }
+ },
+ "captured_at": "2026-11-16T13:50:20+00:00",
+ "figures": {
+  "fig17_dashboard": [
+   {
+    "panel": "(a) Live monitor",
+    "file": "dashboard_monitor.png",
+    "box_px": [
+     0,
+     0,
+     2360,
+     1729
+    ]
+   },
+   {
+    "panel": "(b) Confusion matrix of the replay",
+    "file": "dashboard_monitor.png",
+    "box_px": [
+     0,
+     2549,
+     2360,
+     3114
+    ]
+   },
+   {
+    "panel": "(c) History",
+    "file": "dashboard_history.png",
+    "box_px": [
+     0,
+     119,
+     2360,
+     612
+    ]
+   },
+   {
+    "panel": "(d) Model page",
+    "file": "dashboard_model.png",
+    "box_px": [
+     0,
+     119,
+     2360,
+     1192
+    ]
+   },
+   {
+    "panel": "(e) Model confidence and latest alerts (dark theme)",
+    "file": "dashboard_monitor_dark.png",
+    "box_px": [
+     0,
+     1705,
+     2360,
+     2573
+    ]
+   },
+   {
+    "panel": "(f) Training details and input features (dark theme)",
+    "file": "dashboard_model_dark.png",
+    "box_px": [
+     0,
+     1168,
+     2360,
+     2096
+    ]
+   }
+  ]
+ }
+}

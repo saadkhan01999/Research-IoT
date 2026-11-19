@@ -1,0 +1,12 @@
+{
+ "protocol": "unseen_type__Recon-PingSweep",
+ "seed": 11,
+ "rows": {
+  "train": 15184968,
+  "val": 2170654,
+  "test": 4337203,
+  "unused": 25083872
+ },
+ "held_out": "Recon-PingSweep",
+ "base_protocol": "random_dedup"
+}

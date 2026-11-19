@@ -1,0 +1,188 @@
+{
+  "schema": {
+    "our_features": 39,
+    "paper_features_excl_timestamp": 46,
+    "shared": 38,
+    "paper_only": [
+      "flow duration",
+      "Srate",
+      "Drate",
+      "urg count",
+      "Magnitude",
+      "Radius",
+      "Covariance",
+      "Weight"
+    ],
+    "ours_only": [
+      "IGMP"
+    ],
+    "timestamp_column_present": false,
+    "renamed": {
+      "Duration (paper, = TTL)": "Time_To_Live"
+    },
+    "run_at": "2026-11-11 13:31:05"
+  },
+  "counts": {
+    "rows": 46776697,
+    "labels": 34,
+    "categories": 8,
+    "source_files": 309,
+    "benign_rows": 1098191,
+    "attack_rows": 45678506,
+    "largest_label": "DDoS-ICMP_Flood",
+    "largest_label_rows": 7200501,
+    "smallest_label": "Uploading_Attack",
+    "smallest_label_rows": 1252,
+    "imbalance_ratio": 5751.198881789137,
+    "labels_with_one_file": 15,
+    "run_at": "2026-11-11 13:31:06"
+  },
+  "profile": {
+    "columns_with_missing": [
+      "Std",
+      "Variance"
+    ],
+    "missing_cells": 1404,
+    "columns_with_inf": [
+      "Rate"
+    ],
+    "inf_cells": 1037,
+    "constant_columns": [],
+    "columns_with_at_most_10_values": [
+      "Protocol Type"
+    ],
+    "run_at": "2026-11-11 13:32:50"
+  },
+  "duplicates": {
+    "rows": 46776697,
+    "unique_vectors": 21056271,
+    "rows_in_dup_groups": 27605153,
+    "vectors_multi_label": 542932,
+    "rows_multi_label": 14321020,
+    "vectors_multi_file": 1759788,
+    "rows_multi_file": 27296676,
+    "vectors_multi_category": 461377,
+    "rows_multi_category": 13807710,
+    "vectors_multi_binary": 906,
+    "rows_multi_binary": 26671,
+    "best34": 42030644,
+    "best8": 43448902,
+    "best2": 46774055,
+    "hashed_rows": 46776697,
+    "duplicate_rows": 25720426,
+    "duplicate_share": 0.5498555402490262,
+    "accuracy_ceiling_34": 0.8985380904513203,
+    "accuracy_ceiling_8": 0.9288578456063283,
+    "accuracy_ceiling_2": 0.9999435188850551,
+    "macro_recall_upper_bound_34": 0.9547088708147758,
+    "hash": "pandas hash_pandas_object over the 39 float64 features (64-bit)",
+    "run_at": "2026-11-11 13:35:02"
+  },
+  "order": {
+    "files": 309,
+    "median_ratio_lag_to_random": 0.8047064203235043,
+    "files_ratio_below_0_9": 263,
+    "files_ratio_below_0_5": 28,
+    "median_next_row_identical": 1.2045000120450002e-05,
+    "median_random_pair_identical": 7.049551296060006e-06,
+    "run_at": "2026-11-11 13:37:23"
+  },
+  "redundancy": {
+    "identical_pairs": [
+      [
+        "IPv",
+        "LLC"
+      ],
+      [
+        "AVG",
+        "Tot size"
+      ]
+    ],
+    "correlated_pairs_abs_r_ge_0_99": [
+      {
+        "a": "fin_flag_number",
+        "b": "fin_count",
+        "r": 0.99913
+      },
+      {
+        "a": "syn_flag_number",
+        "b": "syn_count",
+        "r": 0.99674
+      },
+      {
+        "a": "rst_flag_number",
+        "b": "rst_count",
+        "r": 0.99598
+      },
+      {
+        "a": "ARP",
+        "b": "IPv",
+        "r": -1.0
+      },
+      {
+        "a": "ARP",
+        "b": "LLC",
+        "r": -1.0
+      }
+    ],
+    "negative_value_counts": {
+      "IAT": 2
+    },
+    "run_at": "2026-11-11 13:41:39"
+  },
+  "leakage": {
+    "sample_rows": 560155,
+    "cap_per_label": 20000,
+    "top_single_features": {
+      "34-class": [
+        {
+          "feature": "Tot sum",
+          "macro_f1": 0.23443651990206
+        },
+        {
+          "feature": "Max",
+          "macro_f1": 0.21261895487779386
+        },
+        {
+          "feature": "Header_Length",
+          "macro_f1": 0.2095581456778292
+        }
+      ],
+      "8-class": [
+        {
+          "feature": "Max",
+          "macro_f1": 0.4218676590707832
+        },
+        {
+          "feature": "Tot sum",
+          "macro_f1": 0.4109709717652441
+        },
+        {
+          "feature": "AVG",
+          "macro_f1": 0.382132679326118
+        }
+      ],
+      "binary": [
+        {
+          "feature": "Time_To_Live",
+          "macro_f1": 0.5765263814666336
+        },
+        {
+          "feature": "AVG",
+          "macro_f1": 0.5562813238162424
+        },
+        {
+          "feature": "Tot size",
+          "macro_f1": 0.5562813238162424
+        }
+      ]
+    },
+    "all_features_tree_macro_f1": {
+      "34-class": 0.48652869492224315,
+      "8-class": 0.6545735492331989,
+      "binary": 0.7254747982242435
+    },
+    "note": "decision tree on one feature, stratified 5-fold, random split within the capped sample",
+    "run_at": "2026-11-11 13:44:49"
+  }
+}

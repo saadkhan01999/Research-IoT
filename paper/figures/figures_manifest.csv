@@ -1,0 +1,17 @@
+figure,status,sources
+fig01_testbed,drawn,refs/fulltext/A02/text.txt
+fig02_pipeline,drawn,results/audit/audit_summary.json
+fig03_protocols,drawn,toy data; rules of src/iotml/splits.py and src/iotml/experiment.py
+fig04_class_distribution,drawn,results/audit/class_counts_34.csv; results/labels/ceilings.json
+fig05_audit_waterfall,drawn,results/audit/audit_summary.json; results/splits/random_dedup_s11.json
+fig06_ceilings,drawn,results/labels/ceilings.json; results/experiments/**/*_full.json
+fig07_main_results,drawn,results/experiments/**/*_full.json
+fig08_per_class_recall,drawn,results/experiments/**/*_full.json; results/audit/class_counts_34.csv; results/labels/ceilings.json; best L34 model: lightgbm
+fig09_confusion,drawn,results/experiments/**/*_full.json; results/analysis/confusion/random_L8_lightgbm.csv; results/analysis/confusion/random_dedup_L8_lightgbm.csv; results/analysis/confusion/file_grouped_L8_lightgbm.csv; results/analysis/confusion/order_within_file_L8_lightgbm.csv; best L8 model: lightgbm
+fig10_imbalance,drawn,results/experiments/**/*_full.json
+fig11_cost,drawn,results/analysis/cost.csv; results/experiments/**/*_full.json
+fig12_mean_ranks,drawn,results/analysis/model_comparison.json
+fig13_unseen_type,drawn,results/experiments/**/*_full.json; results/audit/class_counts_34.csv; data/interim/predictions/random_dedup/L8/xgboost
+fig14_early_detection,drawn,results/early_detection/curve_full.csv
+fig15_calibration,drawn,results/analysis/calibration.csv; results/analysis/reliability/random_dedup_L8_decision_tree.csv; results/analysis/reliability/random_dedup_L8_random_forest.csv; results/analysis/reliability/random_dedup_L8_extra_trees.csv; results/analysis/reliability/random_dedup_L8_xgboost.csv; results/analysis/reliability/random_dedup_L8_lightgbm.csv
+fig16_shap,drawn,results/analysis/shap_overall.csv

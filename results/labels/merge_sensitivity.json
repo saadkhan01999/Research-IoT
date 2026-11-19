@@ -1,0 +1,76 @@
+{
+  "chosen_threshold": 0.1,
+  "groups": [
+    [
+      "DDoS-SYN_Flood",
+      "DDoS-SynonymousIP_Flood",
+      "DoS-SYN_Flood"
+    ],
+    [
+      "DDoS-TCP_Flood",
+      "DoS-TCP_Flood"
+    ],
+    [
+      "DDoS-UDP_Flood",
+      "DoS-UDP_Flood"
+    ]
+  ],
+  "same_groups_for_thresholds": [
+    0.067,
+    0.524
+  ],
+  "links_inside_groups": [
+    {
+      "a": "DDoS-SYN_Flood",
+      "b": "DDoS-SynonymousIP_Flood",
+      "share": 0.6681
+    },
+    {
+      "a": "DDoS-TCP_Flood",
+      "b": "DoS-TCP_Flood",
+      "share": 0.6388
+    },
+    {
+      "a": "DDoS-SynonymousIP_Flood",
+      "b": "DoS-SYN_Flood",
+      "share": 0.5923
+    },
+    {
+      "a": "DDoS-SYN_Flood",
+      "b": "DoS-SYN_Flood",
+      "share": 0.5388
+    },
+    {
+      "a": "DDoS-UDP_Flood",
+      "b": "DoS-UDP_Flood",
+      "share": 0.5246
+    }
+  ],
+  "strongest_links_between_separate_labels": [
+    {
+      "a": "BenignTraffic",
+      "b": "MITM-ArpSpoofing",
+      "share": 0.0668
+    },
+    {
+      "a": "DNS_Spoofing",
+      "b": "MITM-ArpSpoofing",
+      "share": 0.0543
+    },
+    {
+      "a": "MITM-ArpSpoofing",
+      "b": "Recon-HostDiscovery",
+      "share": 0.0458
+    },
+    {
+      "a": "MITM-ArpSpoofing",
+      "b": "VulnerabilityScan",
+      "share": 0.0348
+    },
+    {
+      "a": "Recon-OSScan",
+      "b": "Recon-PortScan",
+      "share": 0.0333
+    }
+  ]
+}

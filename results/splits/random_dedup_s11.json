@@ -1,0 +1,12 @@
+{
+ "protocol": "random_dedup",
+ "seed": 11,
+ "rows": {
+  "train": 15186559,
+  "val": 2170873,
+  "test": 4337203,
+  "unused": 25082062
+ },
+ "duplicate_copies_dropped": 25082062,
+ "grouping": "identical feature vectors share a part"
+}

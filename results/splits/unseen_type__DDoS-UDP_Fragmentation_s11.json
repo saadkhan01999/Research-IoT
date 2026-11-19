@@ -1,0 +1,12 @@
+{
+ "protocol": "unseen_type__DDoS-UDP_Fragmentation",
+ "seed": 11,
+ "rows": {
+  "train": 14986941,
+  "val": 2142396,
+  "test": 4337203,
+  "unused": 25310157
+ },
+ "held_out": "DDoS-UDP_Fragmentation",
+ "base_protocol": "random_dedup"
+}

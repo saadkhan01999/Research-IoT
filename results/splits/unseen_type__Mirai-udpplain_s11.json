@@ -1,0 +1,12 @@
+{
+ "protocol": "unseen_type__Mirai-udpplain",
+ "seed": 11,
+ "rows": {
+  "train": 14626658,
+  "val": 2091169,
+  "test": 4337203,
+  "unused": 25721667
+ },
+ "held_out": "Mirai-udpplain",
+ "base_protocol": "random_dedup"
+}

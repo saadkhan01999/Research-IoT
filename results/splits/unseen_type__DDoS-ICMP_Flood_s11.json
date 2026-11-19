@@ -1,0 +1,12 @@
+{
+ "protocol": "unseen_type__DDoS-ICMP_Flood",
+ "seed": 11,
+ "rows": {
+  "train": 13800423,
+  "val": 1972948,
+  "test": 4337203,
+  "unused": 26666123
+ },
+ "held_out": "DDoS-ICMP_Flood",
+ "base_protocol": "random_dedup"
+}

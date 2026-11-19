@@ -1,0 +1,12 @@
+{
+ "protocol": "unseen_type__DoS-TCP_Flood",
+ "seed": 11,
+ "rows": {
+  "train": 14371854,
+  "val": 2054301,
+  "test": 4337203,
+  "unused": 26013339
+ },
+ "held_out": "DoS-TCP_Flood",
+ "base_protocol": "random_dedup"
+}

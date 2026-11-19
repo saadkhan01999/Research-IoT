@@ -1,0 +1,12 @@
+{
+ "protocol": "unseen_type__DoS-SYN_Flood",
+ "seed": 11,
+ "rows": {
+  "train": 14356299,
+  "val": 2051892,
+  "test": 4337203,
+  "unused": 26031303
+ },
+ "held_out": "DoS-SYN_Flood",
+ "base_protocol": "random_dedup"
+}
