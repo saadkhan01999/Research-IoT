@@ -1,4 +1,4 @@
-# Machine Learning-Based Multi-Class Attack Prediction for IoT Devices
+# Machine Learning-Based Multi-Class Attacks Prediction for IoT Devices
 
 A leakage-audited evaluation of IoT attack classifiers on the CICIoT2023 dataset.
 
